@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="The Space Within: a documentary series in production on how Indian cities are shaped, and the public spaces that hold them together. Created by Amar Kulkarni."><meta property="og:title" content="State of Urban Spaces · The Space Within"><meta property="og:type" content="website"><meta property="og:description" content="Who encroached our city? A documentary series in production on India's urban public spaces."><meta property="og:image" content="img/hero_traffic.webp"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%23c8323f%27/%3E%3Cpath d=%27M7 9h18v3h-7.5v13h-3V12H7z%27 fill=%27%23fff%27/%3E%3C/svg%3E"><title>State of Urban Spaces · The Space Within</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;800;900&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: the pitch deck's evidence board. Grey plan paper, pinned prints, red dashed
+   survey marks, yellow highlighter on the line that matters. One deliberate look. */
+:root{
+  --paper:#dddbd6; --paper-2:#e8e6e1; --ink:#232323; --muted:#55524d; --rule:#bdb9b1;
+  --red:#c8323f; --red-ink:#ffffff; --hl:#ece15a; --night:#2a2b2e; --night-ink:#ecebe7;
+  --night-muted:#a9a8a3; --card:#f3eedf; --print:#fbfaf6;
+  --display:"Roboto Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;margin:0;
+  background-image:linear-gradient(transparent 0 calc(100% - 1px),rgba(0,0,0,.035) 0),linear-gradient(90deg,transparent 0 calc(100% - 1px),rgba(0,0,0,.035) 0);
+  background-size:48px 48px}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* type */
+.kicker{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.26em;text-transform:uppercase;color:var(--red);margin:0 0 10px}
+.night .kicker{color:var(--hl)}
+.red .kicker{color:var(--red-ink);opacity:.85}
+.disp{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.95;letter-spacing:-.005em;margin:0;text-wrap:balance}
+h2.disp{font-size:clamp(2.1rem,5vw,3.6rem)}
+h3.disp{font-size:clamp(1.25rem,2.2vw,1.6rem);line-height:1.02}
+.lede{font-size:clamp(1.12rem,1.7vw,1.3rem);line-height:1.5;max-width:60ch}
+p{margin:0 0 1em;max-width:66ch}
+.small{font-size:.85rem;color:var(--muted);line-height:1.45}
+.night .small{color:var(--night-muted)}
+.red .small{color:var(--red-ink);opacity:.85}
+.hl{display:inline;background:var(--hl);color:var(--ink);font-family:var(--display);font-weight:700;padding:.18em .6em;border-radius:.7em;box-decoration-break:clone;-webkit-box-decoration-break:clone;line-height:1.75}
+.hl.big{font-size:clamp(1.15rem,2vw,1.5rem)}
+.num{font-family:var(--display);font-weight:800;line-height:.9;font-variant-numeric:tabular-nums;color:var(--red)}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--night);color:var(--night-ink)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding-block:10px}
+.brand{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.12em;text-decoration:none;font-size:1rem;white-space:nowrap}
+.brand b{color:var(--red)}
+.pages{display:flex;gap:4px;margin-left:auto;list-style:none;padding:0;margin-block:0}
+.pages a{display:block;font-family:var(--display);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:8px 12px;color:var(--night-muted);border-bottom:3px solid transparent}
+.pages a:hover{color:var(--night-ink)}
+.pages a[aria-current="page"]{color:var(--night-ink);border-bottom-color:var(--red)}
+.pages .n{color:var(--red);margin-right:6px}
+.top .btn{padding:8px 12px;font-size:.78rem}
+@media (max-width:820px){.top .btn{display:none}}
+@media (max-width:560px){.top .wrap{flex-wrap:wrap;gap:6px}.pages{margin-left:0;width:100%;justify-content:space-between}.pages a{padding:6px 4px;font-size:.74rem;letter-spacing:.08em}.pages .n{display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:12px 18px;background:var(--red);color:var(--red-ink);border:0;cursor:pointer}
+.btn:hover{background:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.night .btn.ghost,.red .btn.ghost{color:var(--night-ink);box-shadow:inset 0 0 0 2px var(--night-ink)}
+.red .btn{background:var(--ink)}
+
+/* sections */
+section{padding-block:clamp(56px,8vw,96px)}
+section.tight{padding-top:0}
+.night{background:var(--night);color:var(--night-ink)}
+.red{background:var(--red);color:var(--red-ink)}
+.head{margin-bottom:clamp(24px,4vw,40px)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.split.wide-left{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+@media (max-width:860px){.split,.split.wide-left{grid-template-columns:minmax(0,1fr)}}
+.dash{outline:2px dashed var(--red);outline-offset:10px}
+.night .dash{outline-color:var(--hl)}
+
+/* pinned prints */
+.print{margin:0;background:var(--print);padding:8px;box-shadow:0 1px 1px rgba(0,0,0,.08),0 10px 24px rgba(0,0,0,.18);transform:rotate(var(--r,0deg))}
+.print img{width:100%;height:auto}
+.print figcaption{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.04em;padding:8px 2px 2px;color:var(--ink);line-height:1.3}
+.credit{font-size:.78rem;color:var(--muted);margin-top:10px}
+.night .credit{color:var(--night-muted)}
+.bare img{width:100%;height:auto}
+
+/* cards */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.card{background:var(--card);padding:20px 20px 22px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+.card.dark{background:var(--night);color:var(--night-ink)}
+.card.redc{background:var(--red);color:var(--red-ink)}
+.card .tag{font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:8px;display:block}
+.card.dark .tag{color:var(--hl)} .card.redc .tag{color:var(--red-ink)}
+.card p{margin:8px 0 0;font-size:.98rem;line-height:1.5}
+.card .num{font-size:2rem;display:block;margin-bottom:10px}
+.card.dark .num{color:var(--hl)} .card.redc .num{color:var(--red-ink)}
+blockquote{margin:0}
+.q{font-family:var(--display);font-weight:700;font-size:1.25rem;line-height:1.25}
+.q::before{content:"\201C";display:block;font-size:3rem;line-height:.6;color:var(--red);margin-bottom:8px}
+.card.dark .q::before{color:var(--hl)} .card.redc .q::before{color:var(--hl)}
+cite{display:block;font-style:normal;margin-top:14px;font-size:.88rem;line-height:1.4}
+cite b{display:block;font-family:var(--display);text-transform:uppercase;letter-spacing:.08em}
+
+/* stats */
+.stats{display:grid;gap:clamp(18px,3vw,36px);grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.stat .num{font-size:clamp(3rem,7vw,5.2rem);display:block}
+.night .stat .num{color:var(--hl)}
+.stat p{margin:8px 0 0;font-size:1rem;line-height:1.45}
+.sources{margin-top:28px;font-size:.8rem;color:var(--muted);max-width:none}
+.night .sources{color:var(--night-muted)}
+
+/* table */
+.tbl{width:100%;border-collapse:collapse;min-width:560px}
+.tbl th,.tbl td{text-align:left;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.14);vertical-align:top;font-size:.98rem;line-height:1.4}
+.tbl thead th{font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:.85rem}
+.tbl thead th:nth-child(2){background:var(--hl);color:var(--ink)}
+.tbl thead th:nth-child(3){background:var(--red);color:var(--red-ink)}
+.tbl tbody th{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;color:var(--night-muted);width:22%}
+.scroll{overflow-x:auto}
+
+/* pager */
+.pager{background:var(--night);color:var(--night-ink)}
+.pager .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding-block:36px}
+.pager a.next{text-decoration:none;display:block}
+.pager .next span{display:block;font-family:var(--display);font-weight:700;letter-spacing:.24em;text-transform:uppercase;font-size:.78rem;color:var(--hl)}
+.pager .next b{display:block;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1}
+.pager .next:hover b{color:var(--hl)}
+footer{background:var(--night);color:var(--night-muted);border-top:1px solid rgba(255,255,255,.1)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;padding-block:18px 30px;font-size:.82rem}
+
+.hero{padding-block:clamp(36px,6vw,72px) clamp(56px,8vw,96px)}
+.hero h1{font-size:clamp(3.6rem,11vw,8.2rem);line-height:.86}
+.hero .meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero .by{font-family:var(--display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.82rem;margin-top:22px;display:inline-block;background:var(--red);color:var(--red-ink);padding:8px 12px}
+.ask-band{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between}
+.ask-band b{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.4rem,3vw,2.1rem);line-height:1}
+.pagehead{padding-block:clamp(40px,6vw,72px) clamp(28px,4vw,40px)}
+.pagehead h1{font-size:clamp(2.8rem,8vw,6rem);line-height:.88}
+/* typology */
+.typo{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr))}
+.typo .card h3{margin:0 0 8px;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.2rem}
+.typo ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.typo li{font-size:.86rem;background:var(--print);padding:3px 8px;line-height:1.3}
+.typo .card.dark li{background:rgba(255,255,255,.1)}
+/* compare */
+.tbl tbody th{width:24%}
+/* quotes */
+.qs{display:grid;gap:14px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.qs .card{min-height:150px}
+.qs .card:nth-child(3n+2){background:var(--hl)}
+.qs .card:nth-child(4n){background:var(--night);color:var(--night-ink)}
+.qs .card:nth-child(4n) .num{color:var(--hl)}
+.qs h3{font-family:var(--display);font-weight:700;font-size:1.2rem;line-height:1.2;margin:0}
+@media (max-width:980px){.qs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.qs{grid-template-columns:minmax(0,1fr)}}
+.format .num{font-size:clamp(2.6rem,5vw,3.6rem)}
+.stories .card h3{font-family:var(--display);font-weight:800;font-size:1.45rem;line-height:1.05;margin:0}
+.stories .card.open{background:transparent;box-shadow:none;outline:2px dashed var(--red);outline-offset:-2px}
+.pilot h2{font-size:clamp(3rem,8vw,5.6rem)}
+
+/* layer stack */
+.matrix{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center;--g:34px;--s:250px;--pr:#c8323f;--su:#3f7a4a;--ho:#2f6f8f}
+.stackwrap{position:relative;height:calc(var(--s)*.72 + var(--g)*9 + 80px);overflow:visible}
+.stack{position:absolute;left:50%;bottom:calc(var(--s)*.2);width:var(--s);height:var(--s);margin-left:calc(var(--s)/-2);transform:rotateX(58deg) rotateZ(-42deg);transform-style:preserve-3d}
+.plate{position:absolute;inset:0;transform:translateZ(calc(var(--i)*var(--g)));border:1.5px solid var(--ink);background-color:rgba(243,238,223,.55);transition:opacity .35s,box-shadow .35s;pointer-events:none;box-shadow:0 0 0 1px rgba(255,255,255,.25) inset}
+.plate .pn,.plate .pt{position:absolute;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);background:var(--print);padding:2px 6px;line-height:1.1;pointer-events:none}
+.plate .pn{left:-1px;top:-1px;background:var(--ink);color:var(--hl);font-size:.72rem}
+.plate .pt{right:-1px;bottom:-1px;font-size:.72rem}
+.thread{position:absolute;width:0;height:calc((var(--b) - var(--a))*var(--g));transform-origin:top;transform:translateZ(calc(var(--a)*var(--g))) rotateX(90deg);border-left:2px solid var(--pr);color:var(--pr);opacity:.8;pointer-events:none;transition:opacity .3s}
+.thread.t-s{border-left-color:var(--su);color:var(--su)}.thread.t-h{border-left-color:var(--ho);color:var(--ho)}
+.thread.w3{border-left-width:3px}.thread.w1{opacity:.5}
+.thread::before,.thread::after{content:"";position:absolute;left:-4.5px;width:7px;height:7px;border-radius:50%;background:currentColor}
+.thread::before{top:-3px}.thread::after{bottom:-3px}
+.matrix.has-on .plate{opacity:.14}
+.matrix.has-on .plate.link{opacity:.7}
+.matrix.has-on .plate.on{opacity:1;box-shadow:0 0 0 3px var(--red),0 14px 24px rgba(0,0,0,.2)}
+.matrix.has-on .thread{opacity:0}
+.matrix.has-on .thread.on{opacity:1;border-left-width:4px}
+/* layer patterns, drawn like plan hatches */
+.pl-natural{background-color:rgba(63,122,74,.55)!important;background-image:radial-gradient(circle at 30% 40%,rgba(30,80,40,.9) 0 14%,transparent 15%),radial-gradient(circle at 70% 70%,rgba(30,80,40,.8) 0 18%,transparent 19%),linear-gradient(160deg,transparent 46%,rgba(47,111,143,.95) 47% 55%,transparent 56%);background-size:60px 60px,90px 90px,100% 100%}
+.pl-fauna{background-image:radial-gradient(circle,var(--ink) 1.4px,transparent 1.6px);background-size:14px 17px}
+.pl-formal{background-color:rgba(63,122,74,.35)!important;background-image:linear-gradient(rgba(63,122,74,.9) 2px,transparent 2px),linear-gradient(90deg,rgba(63,122,74,.9) 2px,transparent 2px);background-size:42px 42px}
+.pl-informal{background-image:repeating-linear-gradient(45deg,rgba(236,225,90,.95) 0 5px,transparent 5px 14px)}
+.pl-built{background-image:linear-gradient(90deg,rgba(199,154,42,.85) 0 70%,transparent 70%),linear-gradient(rgba(199,154,42,.85) 0 70%,transparent 70%);background-size:36px 36px;background-blend-mode:multiply}
+.pl-civic{background-image:linear-gradient(90deg,rgba(35,35,35,.78) 0 45%,transparent 45%),linear-gradient(rgba(35,35,35,.78) 0 45%,transparent 45%);background-size:44px 44px;background-blend-mode:darken;background-position:6px 6px}
+.pl-transport{background-image:linear-gradient(90deg,transparent 47%,var(--red) 47% 53%,transparent 53%),linear-gradient(transparent 30%,var(--red) 30% 35%,transparent 35% 72%,var(--red) 72% 76%,transparent 76%),linear-gradient(35deg,transparent 49%,var(--red) 49% 52%,transparent 52%)}
+.pl-mobility{background-image:repeating-linear-gradient(90deg,var(--ink) 0 12px,transparent 12px 22px),repeating-linear-gradient(90deg,var(--red) 0 8px,transparent 8px 26px);background-size:100% 3px,100% 3px;background-position:0 32%,0 74%;background-repeat:no-repeat}
+.pl-people{background-image:radial-gradient(circle,var(--red) 3.5px,transparent 4px),radial-gradient(circle,var(--ink) 2.5px,transparent 3px);background-size:34px 29px,23px 37px;background-position:4px 6px,15px 2px}
+/* legend */
+.legend{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:4px}
+.lay{all:unset;box-sizing:border-box;display:grid;grid-template-columns:30px 28px minmax(0,1fr) auto;align-items:center;gap:8px;width:100%;padding:7px 10px;cursor:pointer;border-left:3px solid transparent;transition:background .2s,border-color .2s,opacity .2s}
+.lay .sw{display:block;width:30px;height:18px;border:1.5px solid var(--ink);background-color:rgba(243,238,223,.6)}
+.lay .ln{font-family:var(--display);font-weight:800;color:var(--red);font-size:.85rem}
+.lay .lt{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.95rem}
+.lay .lc{display:flex;gap:3px}
+.lay .lc i{width:7px;height:7px;border-radius:50%;background:var(--pr)}
+.lay .lc i.t-s{background:var(--su)}.lay .lc i.t-h{background:var(--ho)}
+.lay:hover,.lay[aria-pressed="true"]{background:var(--card);border-left-color:var(--red)}
+.lay:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.ldetail{background:var(--ink);color:var(--night-ink);padding:18px 20px;min-height:200px}
+.ldetail .kicker{color:var(--hl)}
+.ldetail h3{font-size:1.7rem;margin:0 0 6px}
+.ldetail p{margin:0 0 12px;color:var(--night-muted)}
+.ldetail ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.ldetail li{font-size:.86rem;background:rgba(255,255,255,.1);padding:3px 8px}
+.ldetail .conn-h{margin:14px 0 6px;font-family:var(--display);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;color:var(--hl)}
+.ldetail .conn li{display:flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.2)}
+.ldetail .conn li i{width:8px;height:8px;border-radius:50%;background:var(--pr)}
+.ldetail .conn li i.t-s{background:var(--su)}.ldetail .conn li i.t-h{background:var(--ho)}
+/* connection matrix */
+.conx{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);margin-top:clamp(40px,6vw,64px);padding-top:clamp(28px,4vw,40px);border-top:2px dashed var(--red);align-items:start;--pr:#c8323f;--su:#3f7a4a;--ho:#2f6f8f}
+.mkey{list-style:none;margin:16px 0 18px;padding:0;display:grid;gap:7px;font-size:.92rem}
+.mkey li{display:flex;align-items:center;gap:10px}
+.mk{width:14px;height:14px;border-radius:50%;background:var(--pr);flex:none}
+.mk.t-s{background:var(--su)}.mk.t-h{background:var(--ho)}
+.mdots{display:flex;align-items:center;gap:4px;flex:none}
+.mdots i{border-radius:50%;background:var(--ink);width:6px;height:6px}.mdots i:nth-child(2){width:10px;height:10px}.mdots i:nth-child(3){width:14px;height:14px}
+.mcap{background:var(--card);padding:16px 18px;box-shadow:0 6px 16px rgba(0,0,0,.08);min-height:150px;border-left:5px solid var(--pr)}
+.mcap.t-s{border-left-color:var(--su)}.mcap.t-h{border-left-color:var(--ho)}
+.mcap h4{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.35rem;line-height:1.05;margin:0 0 8px}
+.mcap p{margin:0;font-size:.98rem}
+.mxwrap{overflow-x:auto}
+.mx{display:grid;grid-template-columns:minmax(120px,190px) repeat(9,minmax(30px,1fr));gap:3px;min-width:420px}
+.mx-lab{display:flex;align-items:center;gap:8px;font-size:.84rem;line-height:1.15;padding-right:6px;transition:color .2s}
+.mx-lab b{font-family:var(--display);color:var(--red);font-size:.85rem}
+.mx-c{all:unset;box-sizing:border-box;aspect-ratio:1;display:grid;place-items:center;background:var(--print);cursor:pointer;transition:background .2s,opacity .2s}
+.mx-c i{display:block;border-radius:50%;background:var(--pr);width:30%;height:30%;transition:transform .2s}
+.mx-c.w2 i{width:48%;height:48%}.mx-c.w3 i{width:68%;height:68%}
+.mx-c.t-s i{background:var(--su)}.mx-c.t-h i{background:var(--ho)}
+.mx-c:hover i,.mx-c:focus-visible i,.mx-c.on i{transform:scale(1.18)}
+.mx-c:hover,.mx-c.on{background:var(--hl)}
+.mx-c:focus-visible{outline:3px solid var(--ink);outline-offset:1px}
+.mx-d{aspect-ratio:1;border:1.5px solid var(--ink)}
+.mx-e{aspect-ratio:1}
+.mx-f{text-align:center;font-family:var(--display);font-weight:800;color:var(--red);font-size:.8rem;padding-top:4px}
+.mx.dim .mx-c:not(.rel){opacity:.18}
+.mx-lab.hi b,.mx-f.hi{color:var(--ink);background:var(--hl)}
+.mx-lab.hi{font-weight:700}
+@media (max-width:900px){.matrix{grid-template-columns:minmax(0,1fr);--s:210px;--g:28px}.conx{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.mx{grid-template-columns:34px repeat(9,minmax(26px,1fr));min-width:0}.mx-lab span{display:none}}
+@media (max-width:420px){.matrix{--s:170px;--g:24px}.plate .pt{font-size:.6rem}}
+/* state page */
+.scales{display:grid;gap:18px;grid-template-columns:repeat(6,minmax(0,1fr));align-items:end}
+.scales figure:nth-child(odd){--r:-1.5deg}.scales figure:nth-child(even){--r:1.2deg}
+.scales figcaption b{display:block;color:var(--red);font-size:1rem;text-transform:uppercase;letter-spacing:.04em}
+.scales figcaption span{font-family:var(--body);font-weight:400;font-size:.82rem;color:var(--muted)}
+.scales img{aspect-ratio:4/5;object-fit:cover}
+@media (max-width:980px){.scales{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){.scales{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tiles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.tile{position:relative;aspect-ratio:6/7;overflow:hidden;background:var(--red);outline-offset:2px;cursor:default}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.62);transform:scale(1.02);transition:filter .35s ease,transform .5s ease}
+.tile .tn{position:absolute;top:8px;left:10px;font-family:var(--display);font-weight:800;font-size:.85rem;color:var(--hl);z-index:2;letter-spacing:.06em}
+.tile .tl-name{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px 10px 10px;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(.78rem,1.05vw,.95rem);line-height:1.12;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.78));transition:background .35s ease,color .35s ease,padding .35s ease}
+.tile:hover img,.tile:focus img{filter:none;transform:scale(1.08)}
+.tile:hover .tl-name,.tile:focus .tl-name{background:var(--hl);color:var(--ink);padding-top:10px}
+.tile.text{background:#3a3c40;display:flex}
+.tile.text .tl-name{position:static;align-self:flex-end;background:none;padding:12px 10px}
+.tile.text:hover,.tile.text:focus{background:var(--red)}
+.tile.text:hover .tl-name,.tile.text:focus .tl-name{background:none;color:#fff}
+@media (max-width:980px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:620px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile .tl-name{font-size:.8rem}}
+@media (hover:none){.tile img{filter:grayscale(.3) brightness(.8)}}
+.signs{list-style:none;padding:0;margin:0;columns:3 260px;column-gap:28px;counter-reset:s}
+.signs li{break-inside:avoid;counter-increment:s;display:grid;grid-template-columns:34px minmax(0,1fr);gap:6px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14);line-height:1.35}
+.signs li::before{content:counter(s,decimal-leading-zero);font-family:var(--display);font-weight:800;color:var(--hl)}
+.chapter{border-top:6px solid var(--red)}
+.chapter .cnum{font-family:var(--display);font-weight:900;font-size:clamp(4rem,10vw,7rem);line-height:.8;color:var(--red);opacity:.9}
+.newsgrid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));align-items:start}
+.newsgrid .news{margin-top:0}
+.news{margin-top:26px;background:var(--card);padding:18px 20px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+.night .news{background:#34363a}
+.news ul{list-style:none;margin:0;padding:0}
+.news li{padding:9px 0;border-bottom:1px solid var(--rule);display:grid;gap:2px}
+.night .news li{border-bottom-color:rgba(255,255,255,.12)}
+.news li:last-child{border-bottom:0}
+.news a{font-weight:600;text-decoration-thickness:1px;text-underline-offset:3px}
+.news a:hover{color:var(--red)}
+.night .news a:hover{color:var(--hl)}
+.news span{font-size:.8rem;color:var(--muted)}
+.night .news span{color:var(--night-muted)}
+.fact{background:var(--hl);color:var(--ink);padding:14px 16px;font-family:var(--display);font-weight:700;font-size:1.05rem;line-height:1.35;margin:18px 0 0}
+.chart{display:grid;gap:10px;margin-top:8px}
+.bar{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;align-items:center}
+.bar .lab{text-align:right;font-weight:600;font-size:.95rem}
+.bar .track{position:relative;height:30px}
+.bar .track::before{content:"";position:absolute;top:-6px;bottom:-6px;left:calc(10/31.7*78%);width:calc(2/31.7*78%);background:var(--hl);opacity:.9}
+.bar .fill{position:relative;height:100%;background:var(--ink);width:calc(var(--v)/31.7*78%);min-width:4px}
+.bar.low .fill{background:var(--red)}
+.bar.paper .fill{background:transparent;outline:2px dashed var(--red);outline-offset:-2px}
+.bar .val{position:absolute;left:calc(var(--v)/31.7*78% + 10px);top:50%;transform:translateY(-50%);font-family:var(--display);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar.low .val,.bar.paper .val{color:var(--red)}
+.axis{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px}
+.axis span{position:relative;display:block;height:1.2em;font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+.axis span i{position:absolute;left:calc(10/31.7*78%);font-style:normal;white-space:nowrap}
+.steps{display:grid;gap:12px;grid-template-columns:repeat(5,minmax(0,1fr))}
+.steps .card{color:var(--ink)}
+.steps .card:nth-child(4){background:var(--hl)}
+.steps .card:nth-child(5){background:var(--red);color:var(--red-ink)}
+.steps .card:nth-child(5) .num{color:var(--red-ink)}
+.steps h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.15rem}
+@media (max-width:980px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.steps{grid-template-columns:minmax(0,1fr)}}
+.timeline{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+.timeline li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px}
+.timeline b{font-family:var(--display);font-weight:800;color:var(--red);font-size:1.2rem}
+.tekdis{display:grid;gap:22px;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:760px){.tekdis{grid-template-columns:minmax(0,1fr)}}
+.res{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.res a{display:block;text-decoration:none}
+.res a b{display:block;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.3rem;line-height:1.05}
+.res a:hover b{color:var(--red)}
+/* film page */
+.tl{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:0;border-top:3px solid var(--red);margin-top:10px}
+.tl div{padding:14px 10px 0 0;position:relative}
+.tl div::before{content:"";position:absolute;top:-9px;left:0;width:15px;height:15px;border-radius:50%;background:var(--red)}
+.tl div:last-child::before{background:var(--hl);outline:2px solid var(--red)}
+.tl b{display:block;font-family:var(--display);font-weight:800;font-size:1.2rem;color:var(--red)}
+.tl span{display:block;font-size:.86rem;line-height:1.35}
+@media (max-width:980px){.tl{grid-template-columns:minmax(0,1fr);border-top:0;border-left:3px solid var(--red);margin-left:7px}.tl div{padding:0 0 16px 22px}.tl div::before{top:4px;left:-9px}}
+.stills{display:grid;gap:14px;grid-template-columns:repeat(4,minmax(0,1fr));align-items:start}
+.stills figure:nth-child(3n+1){--r:-1.2deg}.stills figure:nth-child(3n+2){--r:.9deg}.stills figure:nth-child(3n){--r:-.4deg}
+.stills img{aspect-ratio:16/10;object-fit:cover}
+.stills .wide{grid-column:span 2}
+.stills .tall img{aspect-ratio:4/5}
+@media (max-width:860px){.stills{grid-template-columns:repeat(2,minmax(0,1fr))}.stills .wide{grid-column:span 2}}
+.formats{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.formats span{font-family:var(--display);font-weight:700;font-size:.9rem;padding:5px 10px}
+.people{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr))}
+.person{margin:0;background:var(--print);padding:8px 8px 14px;box-shadow:0 1px 1px rgba(0,0,0,.08),0 10px 24px rgba(0,0,0,.18);display:flex;flex-direction:column}
+.person:nth-child(odd){transform:rotate(-.6deg)}.person:nth-child(even){transform:rotate(.6deg)}
+.person img{width:100%;aspect-ratio:21/26;object-fit:cover}
+.person .ph{aspect-ratio:21/26;background:var(--red);display:grid;place-items:center;color:var(--red-ink);font-family:var(--display);font-weight:900;font-size:3rem}
+.person b{display:block;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.02rem;line-height:1.1;margin-top:10px}
+.person span{display:block;font-size:.84rem;color:var(--muted);line-height:1.35;margin-top:4px}
+.person a{margin-top:auto;padding-top:10px;font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);text-decoration:none}
+.person a:hover{text-decoration:underline}
+.team .person img{aspect-ratio:1/1;filter:grayscale(1)}
+.team .person .ph{aspect-ratio:1/1}
+.crew{display:grid;gap:12px}
+.crew div{background:var(--card);padding:14px 16px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.crew b{display:block;font-family:var(--display);font-weight:800;font-size:1.15rem}
+.path{width:100%;border-collapse:collapse;min-width:820px}
+.path th,.path td{padding:12px;border:1px solid var(--rule);vertical-align:top;font-size:.92rem;line-height:1.4;text-align:left}
+.path thead th{background:var(--red);color:var(--red-ink);font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:.86rem}
+.path tbody th{font-family:var(--display);font-weight:700;background:var(--card);width:16%}
+.path td{background:var(--print)}
+.ask ol{padding-left:0;list-style:none;margin:0;counter-reset:a}
+.ask li{counter-increment:a;display:grid;grid-template-columns:40px minmax(0,1fr);gap:8px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.25);font-size:1.05rem}
+.ask li::before{content:counter(a);font-family:var(--display);font-weight:800;font-size:1.5rem;color:var(--hl);line-height:1.1}
+.gets{list-style:none;padding:0;margin:0}
+.gets li{padding:12px 0;border-bottom:1px solid var(--rule)}
+.shots tbody th{color:var(--hl);font-size:1rem;width:12%}
+.shots td:last-child{color:var(--night-muted)}
+.mail{font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,3vw,1.7rem);user-select:all;word-break:break-all}
+.sr{position:absolute;left:-9999px}
+</style><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style></head><body><header class="top"><div class="wrap"><a class="brand" href="index.html">The Space <b>Within</b></a><nav aria-label="Pages"><ul class="pages"><li><a href="index.html"><span class="n">01</span>The Series</a></li><li><a href="state.html" aria-current="page"><span class="n">02</span>State of Urban Spaces</a></li><li><a href="film.html"><span class="n">03</span>The Film</a></li></ul></nav><a class="btn" href="film.html#partner">Partner with us</a></div></header>
+<main>
+<section class="pagehead">
+  <div class="wrap split wide-left" style="align-items:end">
+    <div>
+      <p class="kicker">Page 02 · The state of urban spaces</p>
+      <h1 class="disp">The quality of life in Indian cities is falling</h1>
+    </div>
+    <p class="lede" style="margin:0">In India, understanding the state of urban public spaces is more critical than ever. Urban public space is the common ground that connects all public life: the matrix of natural, built and unbuilt space in a city.</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="head"><p class="kicker">Every scale is shrinking</p><h2 class="disp">From forest to footpath</h2><p class="lede" style="margin-top:12px">The same story repeats at every size, from a national park to the strip of pavement outside your door.</p></div>
+    <div class="scales">
+      <figure class="print"><img src="img/scale_forest.webp" alt="Satellite view of forest edge in Mumbai" loading="lazy" width="820" height="1000"><figcaption><b>Forest</b><span>Aarey and the national park, Mumbai</span></figcaption></figure>
+      <figure class="print"><img src="img/scale_hill.webp" alt="Satellite view of Taljai hill surrounded by buildings" loading="lazy" width="700" height="840"><figcaption><b>Hill</b><span>Taljai and the tekdis, Pune</span></figcaption></figure>
+      <figure class="print"><img src="img/scale_river.webp" alt="Satellite view of the Mutha river through Pune" loading="lazy" width="596" height="720"><figcaption><b>River</b><span>The Mutha, Pune</span></figcaption></figure>
+      <figure class="print"><img src="img/scale_lake.webp" alt="Collage of news clippings on Bengaluru&#x27;s poisonous lakes" loading="lazy" width="520" height="632"><figcaption><b>Lake</b><span>Bengaluru</span></figcaption></figure>
+      <figure class="print"><img src="img/scale_playground.webp" alt="A fenced neighbourhood playground in Bengaluru" loading="lazy" width="456" height="564"><figcaption><b>Playground</b><span>Girinagar, Bengaluru</span></figcaption></figure>
+      <figure class="print"><img src="img/scale_footpath.webp" alt="A crowded market junction seen from above" loading="lazy" width="420" height="480"><figcaption><b>Footpath</b><span>Every street</span></figcaption></figure>
+    </div>
+    <p class="credit" style="margin-top:22px">Satellite imagery: Google Earth</p>
+  </div>
+</section>
+
+<section class="night" id="indicators">
+  <div class="wrap">
+    <div class="head"><p class="kicker">30 warning signs we track</p><h2 class="disp">Critically important urban public space indicators in the Indian context</h2></div>
+    <p class="small" style="margin:-12px 0 22px">Hover over or tap a photograph to read it.</p>
+    <ol class="tiles"><li class="tile" tabindex="0"><img src="img/ind_00.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">01</span><span class="tl-name">Strategic destruction and degradation of natural ecosystems in urban areas</span></li><li class="tile" tabindex="0"><img src="img/ind_01.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">02</span><span class="tl-name">Male domination in public spaces</span></li><li class="tile" tabindex="0"><img src="img/ind_02.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">03</span><span class="tl-name">Increasing urban pollution: air, water, noise, land, light and visual</span></li><li class="tile" tabindex="0"><img src="img/ind_03.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">04</span><span class="tl-name">Decreasing public built and open spaces</span></li><li class="tile" tabindex="0"><img src="img/ind_04.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">05</span><span class="tl-name">Poor quality of public transport and declining bus ridership</span></li><li class="tile" tabindex="0"><img src="img/ind_vehicles.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">06</span><span class="tl-name">Domination of private vehicles over public spaces</span></li><li class="tile" tabindex="0"><img src="img/ind_05.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">07</span><span class="tl-name">Increasing disparity and inequality</span></li><li class="tile" tabindex="0"><img src="img/ind_06.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">08</span><span class="tl-name">Inaccessibility for vulnerable groups</span></li><li class="tile" tabindex="0"><img src="img/scale_hill.webp" alt="" loading="lazy" width="700" height="840"><span class="tn">09</span><span class="tl-name">Increasing encroachment on public spaces</span></li><li class="tile" tabindex="0"><img src="img/ind_07.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">10</span><span class="tl-name">Poor quality of pedestrian infrastructure</span></li><li class="tile" tabindex="0"><img src="img/ind_health.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">11</span><span class="tl-name">Decline in public health</span></li><li class="tile" tabindex="0"><img src="img/ind_08.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">12</span><span class="tl-name">Antisocial behaviour in public spaces</span></li><li class="tile text" tabindex="0"><span class="tn">13</span><span class="tl-name">Discrimination in public spaces</span></li><li class="tile" tabindex="0"><img src="img/ind_09.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">14</span><span class="tl-name">Increasing grey infrastructure over green infrastructure</span></li><li class="tile" tabindex="0"><img src="img/ind_10.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">15</span><span class="tl-name">Increasing road rage, fights and murders in public spaces</span></li><li class="tile" tabindex="0"><img src="img/ind_11.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">16</span><span class="tl-name">Undisciplined road users</span></li><li class="tile" tabindex="0"><img src="img/flood.webp" alt="" loading="lazy" width="1200" height="750"><span class="tn">17</span><span class="tl-name">Increasing extreme weather: urban flooding and the urban heat island effect</span></li><li class="tile" tabindex="0"><img src="img/ind_12.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">18</span><span class="tl-name">Including the LGBTQ community in public spaces</span></li><li class="tile" tabindex="0"><img src="img/aerial.webp" alt="" loading="lazy" width="1400" height="788"><span class="tn">19</span><span class="tl-name">Poor quality of architectural fabric</span></li><li class="tile" tabindex="0"><img src="img/ind_cosmetic.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">20</span><span class="tl-name">Increasing cosmetic spaces and commercialisation of public spaces</span></li><li class="tile" tabindex="0"><img src="img/ind_13.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">21</span><span class="tl-name">Increasing insensitivity towards people and animals in public spaces</span></li><li class="tile" tabindex="0"><img src="img/waste.webp" alt="" loading="lazy" width="1100" height="688"><span class="tn">22</span><span class="tl-name">Unhygienic public spaces</span></li><li class="tile" tabindex="0"><img src="img/ind_14.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">23</span><span class="tl-name">Increasing moral policing in public spaces</span></li><li class="tile" tabindex="0"><img src="img/ind_15.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">24</span><span class="tl-name">Increasing nuisance of public festivals</span></li><li class="tile text" tabindex="0"><span class="tn">25</span><span class="tl-name">A fading sense of belonging towards the city and its public spaces</span></li><li class="tile text" tabindex="0"><span class="tn">26</span><span class="tl-name">Unlawful, abusive and violent behaviour towards common people by political and criminal mafias</span></li><li class="tile" tabindex="0"><img src="img/ind_16.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">27</span><span class="tl-name">Political dominance in public spaces</span></li><li class="tile" tabindex="0"><img src="img/ind_17.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">28</span><span class="tl-name">Increasing mob lynching in public spaces</span></li><li class="tile" tabindex="0"><img src="img/ind_18.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">29</span><span class="tl-name">Gangs terrorising public spaces through beatings, murders, threats and destruction of public property</span></li><li class="tile" tabindex="0"><img src="img/ind_19.webp" alt="" loading="lazy" width="360" height="420"><span class="tn">30</span><span class="tl-name">Increasing intolerance in public spaces</span></li></ol>
+    <p style="margin-top:28px"><span class="hl big">Different symptoms. One loss: the space that belongs to everyone.</span></p>
+    <p class="small" style="margin-top:12px">The Space Within explores these indicators in detail and traces their relationship with urban public space through case studies.</p>
+  </div>
+</section>
+
+<section id="loss">
+  <div class="wrap">
+    <div class="head"><p class="kicker">The scale of the loss</p><h2 class="disp">Three numbers</h2></div>
+    <div class="stats">
+      <div class="stat"><span class="num">1.24 m&sup2;</span><p>of accessible open space for each Mumbai resident. India's own planning guidelines ask for <b>10 to 12 m&sup2;</b>.</p></div>
+      <div class="stat"><span class="num">79%</span><p>of Bengaluru's water bodies lost in four decades, as built up area grew 525%.</p></div>
+      <div class="stat"><span class="num">9/174</span><p>playgrounds planned in Pune's 1987 Development Plan actually available by 2013.</p></div>
+    </div>
+    <p class="sources">Sources: ORF Occasional Paper 241, 2020, citing URDPFI 2014; IISc study by T. V. Ramachandra and Bharath H. Aithal, reported by Firstpost, May 2016; Mid-Day, 16 April 2013.</p>
+  </div>
+</section>
+
+<section class="tight" id="per-person">
+  <div class="wrap split wide-left" style="align-items:start">
+    <div>
+      <p class="kicker">Open space per person, in square metres</p>
+      <h2 class="disp">How much city do you get?</h2>
+      <div class="chart" role="img" aria-label="Open space per person: London 31.7, New York 26.4, Chandigarh 17.4, Bengaluru 2.0, Mumbai 1.24, Chennai 0.81, Pune about 2.7 on paper. Norm 10 to 12." style="margin-top:28px">
+        <div class="bar" style="--v:31.7"><span class="lab">London</span><div class="track"><div class="fill"></div><span class="val">31.7</span></div></div>
+        <div class="bar" style="--v:26.4"><span class="lab">New York</span><div class="track"><div class="fill"></div><span class="val">26.4</span></div></div>
+        <div class="bar" style="--v:17.4"><span class="lab">Chandigarh</span><div class="track"><div class="fill" style="background:var(--muted)"></div><span class="val">17.4</span></div></div>
+        <div class="bar low" style="--v:2.0"><span class="lab">Bengaluru</span><div class="track"><div class="fill"></div><span class="val">2.0</span></div></div>
+        <div class="bar low" style="--v:1.24"><span class="lab">Mumbai</span><div class="track"><div class="fill"></div><span class="val">1.24</span></div></div>
+        <div class="bar low" style="--v:0.81"><span class="lab">Chennai</span><div class="track"><div class="fill"></div><span class="val">0.81</span></div></div>
+        <div class="bar paper" style="--v:2.7"><span class="lab">Pune*</span><div class="track"><div class="fill"></div><span class="val">~2.7 on paper</span></div></div>
+        <div class="axis"><span></span><span><i>Norm 10 to 12</i></span></div>
+      </div>
+      <p class="sources">*Pune: gardens and playgrounds reserved in the 2025 plan for merged villages (162 ha for 6 lakh people); no citywide count is published. Others: Urban Greening Guidelines 2014 and city master plans, via Citizen Matters; London and New York, ORF 2017. Norm: URDPFI 2014.</p>
+    </div>
+    <div class="card redc" style="transform:rotate(1.5deg)">
+      <span class="tag">Pune, in one number</span>
+      <h3 class="disp" style="font-size:1.8rem">1 playground for every</h3>
+      <span class="num" style="font-size:clamp(3.4rem,7vw,5rem);color:var(--hl);margin:8px 0">37,000</span>
+      <h3 class="disp" style="font-size:1.5rem">children under seven</h3>
+      <p>3,37,062 children aged 0 to 6 (Census 2011). 9 playgrounds available (2013). Had the 1987 plan been built: one for every 1,900.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 1 AIR -->
+<section class="chapter" id="air">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <span class="cnum">01</span>
+      <p class="kicker" style="margin-top:14px">Death in the air</p>
+      <h2 class="disp">Air pollution</h2>
+      <p class="lede" style="margin-top:16px">Indian cities are choked by polluted air. PM2.5 particles are smaller than 2.5 micrometres, about 3% of the width of a human hair, small enough to enter the bloodstream and raise the risk of respiratory disease, heart disease and lung cancer.</p>
+      <p>Air quality is one of the first things that defines a public space. Bad air keeps people away from their surroundings and turns the commons into a health risk.</p>
+      <p class="fact">In the 2025 World Air Quality Report, India ranked as the sixth most polluted country, and Loni in Ghaziabad was the world's most polluted city, at 112.5 &micro;g/m&sup3; of PM2.5 a year.</p>
+      <figure class="card" style="margin:20px 0 0"><blockquote class="q" style="font-size:1.05rem">Exposure to PM2.5 over a few hours to weeks can trigger cardiovascular disease related mortality and nonfatal events; longer term exposure increases the risk for cardiovascular mortality to an even greater extent.</blockquote><cite><b>American Heart Association</b>Scientific statement, 2010</cite></figure>
+    </div>
+    <div>
+      <figure class="print" style="--r:1.2deg"><img src="img/smog.webp" alt="A man with his face covered walks along a railing in thick grey smog" loading="lazy" width="1800" height="1013"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 2 FLOODING -->
+<section class="chapter night" id="flooding">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <span class="cnum">02</span>
+      <p class="kicker" style="margin-top:14px">When the water comes</p>
+      <h2 class="disp">Increasing urban flooding</h2>
+      <p class="lede" style="margin-top:16px">Almost every metropolitan city in India now floods, and it happens more often each year. Urban flooding breaks the environmental, social and economic framework of a city and stops its daily life.</p>
+      <p>The cause is built into the city. Encroaching on open spaces, river floodplains, streams and hills changes how the land drains. Water goes where the plan forgot it had to go.</p>
+      <p class="fact">Katraj, Pune, 2019. Hills cut, streams built over. Ambil Odha flooded in September; at least 17 people died.</p>
+    </div>
+    <figure class="print" style="--r:-1.2deg"><img src="img/flood.webp" alt="Cars and a taxi piled on top of each other after a flash flood in a residential lane" loading="lazy" width="1200" height="750"></figure>
+  </div>
+</section>
+
+<!-- CHAPTER 3 OPEN SPACE -->
+<section class="chapter" id="open-space">
+  <div class="wrap">
+    <div class="split" style="align-items:start">
+      <div>
+        <span class="cnum">03</span>
+        <p class="kicker" style="margin-top:14px">Vanishing open public spaces from cities</p>
+        <h2 class="disp">Open public spaces under stress</h2>
+        <p class="lede" style="margin-top:16px">Open public spaces in Mumbai, Delhi, Bengaluru, Pune and Hyderabad are shrinking fast, and tier two and three cities are on the same path. Children's playgrounds and community spaces are replaced by towers, or by cosmetic spaces meant only for the well off.</p>
+        <p>Open spaces are removed from development plans by a nexus of private and public actors with vested interests. Court cases show developers and politicians together taking land reserved for children, elders and recreation.</p>
+      </div>
+      <div>
+        <div class="dash" style="padding:8px 12px;display:inline-block;margin:12px 0 18px"><span class="num" style="font-size:clamp(4.5rem,13vw,8rem)">2,141</span></div>
+        <p class="lede">trees felled for a Metro car shed in Aarey, Mumbai's green lung, over two days in October 2019, while citizens protested at the gates.</p>
+        <p><span class="hl big">&ldquo;Don't cut anything now.&rdquo;</span></p>
+        <p class="small">The Supreme Court, 7 October 2019. By then the felling was done.</p>
+      </div>
+    </div>
+    <div class="split" style="margin-top:34px">
+      <figure class="bare" style="margin:0;transform:rotate(-1deg)"><img src="img/aarey_docs.webp" alt="Supreme Court record of proceedings on the felling of trees in Aarey, pinned above a satellite view of the national park" loading="lazy" width="1560" height="1820"></figure>
+      <div>
+        <p class="kicker">Mumbai · Sanjay Gandhi National Park</p>
+        <h3 class="disp" style="font-size:clamp(1.6rem,3.4vw,2.4rem)">A forest inside a megacity. Watch its edge.</h3>
+        <img src="img/park_edge.webp" alt="Four satellite views of the national park edge in 2000 above the same four views in 2023, with grey development spreading into green" loading="lazy" style="margin-top:18px;width:100%" width="1600" height="453">
+        <p style="margin-top:16px"><span class="hl">Four points on the park's edge. Twenty three years. The grey moves in.</span></p>
+        <p class="credit">Google Earth imagery, compiled for The Space Within's 2023 series on encroachment of green spaces.</p>
+      </div>
+    </div>
+    <div style="margin-top:46px">
+      <p class="kicker">The Maharashtra Regional and Town Planning Act</p>
+      <h3 class="disp" style="font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:22px">How a playground disappears, legally</h3>
+      <div class="steps">
+        <div class="card"><span class="num">1</span><h3>The plan</h3><p>The Development Plan reserves land for a park, a playground, a school.</p></div>
+        <div class="card"><span class="num">2</span><h3>The wait</h3><p>The city must acquire the land. Often it never does: no budget, no will.</p></div>
+        <div class="card"><span class="num">3</span><h3>The notice</h3><p>After ten years, the owner serves a purchase notice under Section 127.</p></div>
+        <div class="card"><span class="num">4</span><h3>The lapse</h3><p>If the city still does not act in time, the reservation lapses.</p></div>
+        <div class="card"><span class="num">5</span><h3>The tower</h3><p>The land goes back to the owner and is built on. The playground stays on paper.</p></div>
+      </div>
+      <div class="split" style="margin-top:26px;align-items:start">
+        <div><h3 class="disp" style="color:var(--red)">Plans that arrive late</h3><p style="margin-top:8px">Pune declared a plan for its merged villages in 2018. It missed every deadline; in 2025 a state town planner had to finish it. Even on paper it gives each resident about 2.7 m&sup2; of gardens and playgrounds.</p></div>
+        <div><h3 class="disp" style="color:var(--red)">What it costs people</h3><p style="margin-top:8px">Children play on roads. Streams built over turn into floods. Every lapsed reservation is a park a whole neighbourhood will never have.</p></div>
+      </div>
+      <p><span class="hl big">Nothing illegal happened. That is the scandal.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 4 WATER -->
+<section class="chapter night" id="water">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <span class="cnum">04</span>
+      <p class="kicker" style="margin-top:14px">Poisoning the lifelines</p>
+      <h2 class="disp">Encroachment on water bodies and water pollution</h2>
+      <p class="lede" style="margin-top:16px">Most Indian cities grew on the banks of rivers and lakes. Rivers shaped them culturally, socially and ecologically, and their banks were among the first public spaces.</p>
+      <p>Cities were planned as if water bodies did not exist. Their ecology and the services they give residents were never counted, so they were filled, narrowed and used as drains.</p>
+      <p class="fact">The Central Pollution Control Board's 2025 assessment lists 296 polluted river stretches across India, based on 2022 to 23 monitoring.</p>
+      <figure class="bare" style="margin:22px 0 0"><img src="img/evidence_map.webp" alt="Satellite image with a riverbank strip marked in red beside highlighted newspaper headlines on Bengaluru floods" loading="lazy" width="1600" height="610"></figure>
+    </div>
+    <div>
+      <figure class="print" style="--r:1deg"><img src="img/waste.webp" alt="Plastic and household waste piled on the bank of an urban stream" loading="lazy" width="1100" height="688"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 5 TRANSPORT -->
+<section class="chapter" id="transport">
+  <div class="wrap">
+    <div class="split" style="align-items:start">
+      <div>
+        <span class="cnum">05</span>
+        <p class="kicker" style="margin-top:14px">Roads over rivers and hills</p>
+        <h2 class="disp">Urban transport: traffic taking over public spaces</h2>
+        <p class="lede" style="margin-top:16px">Footpaths become parking, buses lose riders to private vehicles, and new roads are drawn over hills and riverbeds. The street as a shared room is giving way to the street as a traffic lane.</p>
+        <figure class="print" style="--r:-1deg;margin-top:20px"><img src="img/junction.webp" alt="A crowded market junction seen from above, with cars, autorickshaws, two wheelers and pedestrians sharing the road" loading="lazy" width="1400" height="900"></figure>
+      </div>
+      <div>
+        <p class="kicker">Pune · Vetal tekdi</p>
+        <h3 class="disp" style="font-size:clamp(1.8rem,4vw,2.8rem)">The hill they want to cut</h3>
+        <ul class="timeline">
+          <li><b>1987</b><span>A link road is drawn across Vetal tekdi, the city's largest green hill.</span></li>
+          <li><b>2016</b><span>The Bombay High Court strikes it down until an impact assessment is done.</span></li>
+          <li><b>2025</b><span>It is back. The Supreme Court tells PMC to get environmental clearance first. Twin tunnels and a ring road are planned on the same hill.</span></li>
+        </ul>
+        <div class="stats" style="margin-top:24px;grid-template-columns:repeat(3,minmax(0,1fr))">
+          <div class="stat"><span class="num" style="font-size:clamp(1.6rem,3vw,2.3rem)">2.1 km</span><p class="small">of road</p></div>
+          <div class="stat"><span class="num" style="font-size:clamp(1.6rem,3vw,2.3rem)">1,440 to 7,000</span><p class="small">trees at risk, by different estimates</p></div>
+          <div class="stat"><span class="num" style="font-size:clamp(1.6rem,3vw,2.3rem)">~6 min</span><p class="small">of commute it claims to save</p></div>
+        </div>
+        <figure class="print" style="--r:1.4deg;margin-top:22px"><img src="img/vetal.webp" alt="News clipping on a road through Vetal tekdi above a photo of the forested hill" loading="lazy" width="1340" height="720"></figure>
+      </div>
+    </div>
+    <div class="card dark" style="margin-top:34px">
+      <span class="tag">Meanwhile, on the other tekdis</span>
+      <div class="tekdis" style="margin-top:10px">
+        <p style="margin:0"><b>Baner, July 2026.</b> A hill dug at night beside the biodiversity park. PMC's own verdict: &ldquo;the activity was illegal&rdquo;.</p>
+        <p style="margin:0"><b>Baner.</b> A concrete structure on land reserved for a biodiversity park, still standing five years after PMC ordered it down.</p>
+        <p style="margin:0"><b>Hinjewadi, 2004 to 2015.</b> Hills became an IT park. Satellite archives become the series' signature: the same frame, years apart.</p>
+      </div>
+    </div>
+    <div class="split" style="margin-top:30px">
+      <figure class="bare" style="margin:0"><img src="img/tv_itpark.webp" alt="An old television set showing a satellite view of hills turned into an IT park" loading="lazy" width="1600" height="1126"></figure>
+      <div><p class="kicker">Hinjewadi, west Pune · 2004 to 2015</p><h3 class="disp" style="font-size:clamp(1.8rem,4vw,2.8rem)">Hills to an IT park</h3><p class="lede" style="margin-top:14px">Satellite archives become the series' signature: the same frame, years apart.</p><p class="credit">Imagery: Google Earth</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="night" id="courts">
+  <div class="wrap">
+    <div class="head"><p class="kicker">On the record</p><h2 class="disp">The courts have said it</h2></div>
+    <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr))">
+      <figure class="card" style="margin:0;color:var(--ink)"><span class="tag">Supreme Court of India · 1991</span><blockquote class="q" style="font-size:1.08rem">Protection of the environment, open spaces for recreation and fresh air, play grounds for children, promenade for the residents, and other conveniences or amenities are matters of great public concern and of vital interest to be taken care of in a development scheme.</blockquote><cite>Bangalore Medical Trust v. B. S. Muddappa</cite></figure>
+      <figure class="card redc" style="margin:0"><span class="tag">Madras High Court · 2022</span><blockquote class="q">We have reached a situation where even if God encroaches upon a public space, the courts will direct the removal of such encroachments.</blockquote><cite>Justice N. Anand Venkatesh, reported in The Hindu, 25 March 2022</cite></figure>
+      <figure class="card" style="margin:0;color:var(--ink)"><span class="tag">Supreme Court of India · Aarey, 2019</span><blockquote class="q" style="font-size:1.8rem">Don't cut anything now.</blockquote><cite>Special bench, 7 October 2019. 2,141 trees were already down.</cite></figure>
+      <figure class="card" style="margin:0;color:var(--ink)"><span class="tag">National Green Tribunal · 2021</span><blockquote class="q">Environmental damage &ldquo;cannot be dealt with by authorities at leisure.&rdquo;</blockquote><cite>On untreated sewage entering India's water bodies, reported by PTI in The Hindu BusinessLine</cite></figure>
+      <figure class="card" style="margin:0;color:var(--ink)"><span class="tag">Bombay High Court · Safe Cities symposium, 2013</span><blockquote class="q" style="font-size:1.05rem">Warped definitions of progress, fancier cars for the few, little or no attention to mass transit and public transport, public infrastructure and open spaces, lead to urban built forms that are incongruous and inappropriate.</blockquote><cite>Justice Gautam Patel, August 2013</cite></figure>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="head"><p class="kicker">From our research files</p><h2 class="disp">In the news</h2><p class="lede" style="margin-top:12px">Every city. Every year. Recent reporting on each of the five chapters above.</p></div>
+    <div class="newsgrid"><div class="news"><p class="kicker">01 · Air pollution</p><ul><li><a href="https://thewire.in/environment/a-2025-world-air-quality-report-lists-india-as-the-sixth-most-polluted-country" target="_blank" rel="noopener">A 2025 world air quality report lists India as the sixth most polluted country</a><span>The Wire · 26 March 2026</span></li><li><a href="https://www.iqair.com/newsroom/delhi-among-top-10-most-polluted-cities-in-the-world-10-15-2025" target="_blank" rel="noopener">Delhi among top 10 most polluted cities in the world</a><span>IQAir newsroom · 15 October 2025</span></li><li><a href="https://www.newslaundry.com/2026/02/09/bjp-govt-said-delhi-logged-200-clean-days-in-2025-so-why-did-this-winter-feel-this-bad" target="_blank" rel="noopener">Delhi logged 200 &#x27;clean&#x27; days in 2025. So why did this winter feel this bad?</a><span>Newslaundry · 9 February 2026</span></li><li><a href="https://www.etvbharat.com/en/bharat/explainer-why-lethal-smog-keeps-returning-to-delhi-and-why-the-crisis-refuses-to-fade-enn25121503008" target="_blank" rel="noopener">Explainer: why lethal smog keeps returning to Delhi</a><span>ETV Bharat · December 2025</span></li><li><a href="https://www.downtoearth.org.in/air/how-india-moves-punes-roads-buckle-under-an-explosion-of-two-wheeler-traffic" target="_blank" rel="noopener">How India moves: Pune&#x27;s roads buckle under an explosion of two wheeler traffic</a><span>Down To Earth</span></li><li><a href="https://www.ncbi.nlm.nih.gov/pubmed/20458016" target="_blank" rel="noopener">Particulate matter air pollution and cardiovascular disease, scientific statement</a><span>American Heart Association, Circulation, 2010</span></li></ul></div><div class="news"><p class="kicker">02 · Urban flooding</p><ul><li><a href="https://www.theweek.in/wire-updates/national/2025/08/20/bom51-mh-rains-pune-evacuation.html" target="_blank" rel="noopener">212 people evacuated in Pune as water released from dam floods low lying areas</a><span>The Week · 20 August 2025</span></li><li><a href="https://www.theweek.in/wire-updates/national/2025/08/19/bom11-mh-rains-mumbai-river.html" target="_blank" rel="noopener">Mumbai rain fury: 350 persons shifted as Mithi river swells</a><span>The Week · 19 August 2025</span></li><li><a href="https://www.deccanherald.com/india/maharashtra/267-mumbai-floods-twenty-years-latercity-still-vulnerable-to-deluge-3649024" target="_blank" rel="noopener">26/7 Mumbai floods, twenty years later: city still vulnerable to deluge</a><span>Deccan Herald · July 2025</span></li><li><a href="https://www.thenewsminute.com/karnataka/bengalurus-infra-fails-crucial-rain-test-crumbles-before-monsoon-arrives" target="_blank" rel="noopener">Bengaluru&#x27;s infrastructure fails crucial rain test, crumbles before monsoon arrives</a><span>The News Minute · May 2025</span></li><li><a href="https://www.deccanherald.com/opinion/editorial/bengaluru-flooding-is-largely-preventable-3480972" target="_blank" rel="noopener">Bengaluru flooding is largely preventable</a><span>Deccan Herald editorial · 2025</span></li><li><a href="https://sandrp.in/2024/08/30/flood-lines-riverfront-development-and-citizen-heroes-story-of-pune-floods/" target="_blank" rel="noopener">Flood lines, riverfront development and citizen heroes: the story of Pune floods</a><span>SANDRP · August 2024</span></li></ul></div><div class="news"><p class="kicker">03 · Open public spaces</p><ul><li><a href="https://www.etvbharat.com/en/bharat/the-last-playground-2-why-pune-parks-are-thriving-while-open-spaces-shrink-enn26052504304" target="_blank" rel="noopener">The last playground: why Pune&#x27;s parks are thriving while open spaces shrink</a><span>ETV Bharat · May 2026</span></li><li><a href="https://www.punekarnews.in/pune-playground-reservation-cancelled-for-katraj-dairy-expansion-in-a-controversial-decision/" target="_blank" rel="noopener">Playground reservation cancelled for Katraj dairy expansion in a controversial decision</a><span>Punekar News</span></li><li><a href="https://www.punekarnews.in/?p=234067" target="_blank" rel="noopener">AAP announces &#x27;lock breaking&#x27; protest over closure of PG-13 playground in Bavdhan</a><span>Punekar News</span></li><li><a href="https://www.freepressjournal.in/mumbai/mumbai-activists-oppose-bmc-move-to-convert-football-ground-at-bandra-reclamation-into-exhibition-centre" target="_blank" rel="noopener">Activists oppose BMC move to convert football ground at Bandra Reclamation into exhibition centre</a><span>Free Press Journal</span></li><li><a href="https://www.freepressjournal.in/mumbai/bombay-hc-upholds-slum-rehab-policy-on-open-spaces-mandates-35-green-space-bmc-monitoring" target="_blank" rel="noopener">Bombay HC upholds slum rehab policy on open spaces, mandates 35% green space</a><span>Free Press Journal</span></li><li><a href="https://www.freepressjournal.in/analysis/the-bmc-must-secure-not-sell-open-spaces-in-the-city" target="_blank" rel="noopener">The BMC must secure, not sell, open spaces in the city</a><span>Free Press Journal, analysis</span></li></ul></div><div class="news"><p class="kicker">04 · Water bodies</p><ul><li><a href="https://www.policyedge.in/p/cpcb-report-polluted-river-stretches" target="_blank" rel="noopener">CPCB report: polluted river stretches for restoration of water quality, 2025</a><span>The Policy Edge · 30 September 2025</span></li><li><a href="https://india.mongabay.com/2025/12/as-a-riverfront-plan-advances-ecologists-warn-of-damage-to-floodplains-biodiversity/" target="_blank" rel="noopener">As a riverfront plan advances, ecologists warn of damage to floodplains and biodiversity</a><span>Mongabay India · December 2025</span></li><li><a href="https://questionofcities.org/pune-riverfront-work-narrows-the-mula-mutha-slashes-green-to-grey/" target="_blank" rel="noopener">Pune riverfront work narrows the Mula Mutha, slashes green to grey</a><span>Question of Cities</span></li><li><a href="https://www.thenewsminute.com/karnataka/lost-lakes-encroached-drains-why-some-parts-bengaluru-flooded-worse-others-70334" target="_blank" rel="noopener">Lost lakes, encroached drains: why some parts of Bengaluru flooded worse than others</a><span>The News Minute</span></li><li><a href="https://thewire.in/urban/hyderabad-hydraa-telangana-govts-new-agency-razes-52-encroachments-on-lake-beds" target="_blank" rel="noopener">Hyderabad: HYDRAA, Telangana&#x27;s new agency, razes 52 encroachments on lake beds</a><span>The Wire</span></li></ul></div><div class="news"><p class="kicker">05 · Urban transport</p><ul><li><a href="https://dailypioneer.com/news/india-faces-70-urban-bus-deficit-finds-new-study" target="_blank" rel="noopener">India faces 70% urban bus deficit, finds new study</a><span>The Pioneer · 2026</span></li><li><a href="https://www.cseindia.org/urban-bus-transport-systems-in-dire-straits-in-india-says-new-cse-cities-forum-study-13205" target="_blank" rel="noopener">Urban bus transport systems in dire straits in India, CSE and CITIES Forum study</a><span>Centre for Science and Environment</span></li><li><a href="https://www.business-standard.com/india-news/centre-approves-1-000-electric-buses-for-pune-under-pm-e-drive-scheme-125111200161_1.html" target="_blank" rel="noopener">Centre approves 1,000 electric buses for Pune under PM e-Drive scheme</a><span>Business Standard · November 2025</span></li><li><a href="https://www.parisar.org/what-we-do/urban-transport/analysis-reports/pmpml-dashboard" target="_blank" rel="noopener">PMPML data dashboard: visualising public transport performance</a><span>Parisar</span></li><li><a href="https://moneylife.in/article/footpaths-are-not-dumping-grounds-bombay-hc-orders-pmc-to-relocate-fuse-boxes-remove-footpath-obstructions/76842.html" target="_blank" rel="noopener">&#x27;Footpaths are not dumping grounds&#x27;: Bombay HC orders PMC to remove footpath obstructions</a><span>Moneylife</span></li><li><a href="https://www.punekarnews.in/?p=191634" target="_blank" rel="noopener">Pune&#x27;s pedestrian policy remains on paper: encroachments and neglect plague footpaths</a><span>Punekar News</span></li></ul></div></div>
+  </div>
+</section>
+
+<section class="tight" id="resources">
+  <div class="wrap">
+    <div class="head"><p class="kicker">Important websites</p><h2 class="disp">Stand up for public space</h2></div>
+    <div class="res">
+      <a class="card" href="https://www.urbangateway.org/publicspace" target="_blank" rel="noopener"><span class="tag">UN Habitat</span><b>Global toolkit for public spaces</b><p>Principles, policies and practice for planning, designing and managing public space.</p></a>
+      <a class="card" href="http://www.standupforpublicspace.org/" target="_blank" rel="noopener"><span class="tag">Campaign</span><b>Stand up for public spaces</b><p>A global campaign and resource on the right to public space.</p></a>
+      <a class="card dark" href="https://www.parisar.org/" target="_blank" rel="noopener"><span class="tag">Pune</span><b>Parisar</b><p>Research and advocacy on sustainable transport and urban governance, cofounded by our interviewee Ranjit Gadgil.</p></a>
+    </div>
+  </div>
+</section>
+</main>
+<div class="pager"><div class="wrap"><span class="small" style="color:var(--night-muted)">The Space Within · A documentary series in production</span><a class="next" href="film.html"><span>Next · Page 03</span><b>The Film &rarr;</b></a></div></div><footer><div class="wrap"><span>The Space Within · A documentary series in production · Created by Amar Kulkarni</span><span>Satellite imagery: Google Earth, as credited · News links open the original reports</span></div></footer></body></html>

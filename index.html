@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="The Space Within: a documentary series in production on how Indian cities are shaped, and the public spaces that hold them together. Created by Amar Kulkarni."><meta property="og:title" content="The Space Within"><meta property="og:type" content="website"><meta property="og:description" content="Who encroached our city? A documentary series in production on India's urban public spaces."><meta property="og:image" content="img/hero_traffic.webp"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%23c8323f%27/%3E%3Cpath d=%27M7 9h18v3h-7.5v13h-3V12H7z%27 fill=%27%23fff%27/%3E%3C/svg%3E"><title>The Space Within</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;800;900&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: the pitch deck's evidence board. Grey plan paper, pinned prints, red dashed
+   survey marks, yellow highlighter on the line that matters. One deliberate look. */
+:root{
+  --paper:#dddbd6; --paper-2:#e8e6e1; --ink:#232323; --muted:#55524d; --rule:#bdb9b1;
+  --red:#c8323f; --red-ink:#ffffff; --hl:#ece15a; --night:#2a2b2e; --night-ink:#ecebe7;
+  --night-muted:#a9a8a3; --card:#f3eedf; --print:#fbfaf6;
+  --display:"Roboto Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;margin:0;
+  background-image:linear-gradient(transparent 0 calc(100% - 1px),rgba(0,0,0,.035) 0),linear-gradient(90deg,transparent 0 calc(100% - 1px),rgba(0,0,0,.035) 0);
+  background-size:48px 48px}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* type */
+.kicker{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.26em;text-transform:uppercase;color:var(--red);margin:0 0 10px}
+.night .kicker{color:var(--hl)}
+.red .kicker{color:var(--red-ink);opacity:.85}
+.disp{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.95;letter-spacing:-.005em;margin:0;text-wrap:balance}
+h2.disp{font-size:clamp(2.1rem,5vw,3.6rem)}
+h3.disp{font-size:clamp(1.25rem,2.2vw,1.6rem);line-height:1.02}
+.lede{font-size:clamp(1.12rem,1.7vw,1.3rem);line-height:1.5;max-width:60ch}
+p{margin:0 0 1em;max-width:66ch}
+.small{font-size:.85rem;color:var(--muted);line-height:1.45}
+.night .small{color:var(--night-muted)}
+.red .small{color:var(--red-ink);opacity:.85}
+.hl{display:inline;background:var(--hl);color:var(--ink);font-family:var(--display);font-weight:700;padding:.18em .6em;border-radius:.7em;box-decoration-break:clone;-webkit-box-decoration-break:clone;line-height:1.75}
+.hl.big{font-size:clamp(1.15rem,2vw,1.5rem)}
+.num{font-family:var(--display);font-weight:800;line-height:.9;font-variant-numeric:tabular-nums;color:var(--red)}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--night);color:var(--night-ink)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding-block:10px}
+.brand{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.12em;text-decoration:none;font-size:1rem;white-space:nowrap}
+.brand b{color:var(--red)}
+.pages{display:flex;gap:4px;margin-left:auto;list-style:none;padding:0;margin-block:0}
+.pages a{display:block;font-family:var(--display);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:8px 12px;color:var(--night-muted);border-bottom:3px solid transparent}
+.pages a:hover{color:var(--night-ink)}
+.pages a[aria-current="page"]{color:var(--night-ink);border-bottom-color:var(--red)}
+.pages .n{color:var(--red);margin-right:6px}
+.top .btn{padding:8px 12px;font-size:.78rem}
+@media (max-width:820px){.top .btn{display:none}}
+@media (max-width:560px){.top .wrap{flex-wrap:wrap;gap:6px}.pages{margin-left:0;width:100%;justify-content:space-between}.pages a{padding:6px 4px;font-size:.74rem;letter-spacing:.08em}.pages .n{display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:12px 18px;background:var(--red);color:var(--red-ink);border:0;cursor:pointer}
+.btn:hover{background:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.night .btn.ghost,.red .btn.ghost{color:var(--night-ink);box-shadow:inset 0 0 0 2px var(--night-ink)}
+.red .btn{background:var(--ink)}
+
+/* sections */
+section{padding-block:clamp(56px,8vw,96px)}
+section.tight{padding-top:0}
+.night{background:var(--night);color:var(--night-ink)}
+.red{background:var(--red);color:var(--red-ink)}
+.head{margin-bottom:clamp(24px,4vw,40px)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.split.wide-left{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+@media (max-width:860px){.split,.split.wide-left{grid-template-columns:minmax(0,1fr)}}
+.dash{outline:2px dashed var(--red);outline-offset:10px}
+.night .dash{outline-color:var(--hl)}
+
+/* pinned prints */
+.print{margin:0;background:var(--print);padding:8px;box-shadow:0 1px 1px rgba(0,0,0,.08),0 10px 24px rgba(0,0,0,.18);transform:rotate(var(--r,0deg))}
+.print img{width:100%;height:auto}
+.print figcaption{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.04em;padding:8px 2px 2px;color:var(--ink);line-height:1.3}
+.credit{font-size:.78rem;color:var(--muted);margin-top:10px}
+.night .credit{color:var(--night-muted)}
+.bare img{width:100%;height:auto}
+
+/* cards */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.card{background:var(--card);padding:20px 20px 22px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+.card.dark{background:var(--night);color:var(--night-ink)}
+.card.redc{background:var(--red);color:var(--red-ink)}
+.card .tag{font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:8px;display:block}
+.card.dark .tag{color:var(--hl)} .card.redc .tag{color:var(--red-ink)}
+.card p{margin:8px 0 0;font-size:.98rem;line-height:1.5}
+.card .num{font-size:2rem;display:block;margin-bottom:10px}
+.card.dark .num{color:var(--hl)} .card.redc .num{color:var(--red-ink)}
+blockquote{margin:0}
+.q{font-family:var(--display);font-weight:700;font-size:1.25rem;line-height:1.25}
+.q::before{content:"\201C";display:block;font-size:3rem;line-height:.6;color:var(--red);margin-bottom:8px}
+.card.dark .q::before{color:var(--hl)} .card.redc .q::before{color:var(--hl)}
+cite{display:block;font-style:normal;margin-top:14px;font-size:.88rem;line-height:1.4}
+cite b{display:block;font-family:var(--display);text-transform:uppercase;letter-spacing:.08em}
+
+/* stats */
+.stats{display:grid;gap:clamp(18px,3vw,36px);grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.stat .num{font-size:clamp(3rem,7vw,5.2rem);display:block}
+.night .stat .num{color:var(--hl)}
+.stat p{margin:8px 0 0;font-size:1rem;line-height:1.45}
+.sources{margin-top:28px;font-size:.8rem;color:var(--muted);max-width:none}
+.night .sources{color:var(--night-muted)}
+
+/* table */
+.tbl{width:100%;border-collapse:collapse;min-width:560px}
+.tbl th,.tbl td{text-align:left;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.14);vertical-align:top;font-size:.98rem;line-height:1.4}
+.tbl thead th{font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:.85rem}
+.tbl thead th:nth-child(2){background:var(--hl);color:var(--ink)}
+.tbl thead th:nth-child(3){background:var(--red);color:var(--red-ink)}
+.tbl tbody th{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;color:var(--night-muted);width:22%}
+.scroll{overflow-x:auto}
+
+/* pager */
+.pager{background:var(--night);color:var(--night-ink)}
+.pager .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding-block:36px}
+.pager a.next{text-decoration:none;display:block}
+.pager .next span{display:block;font-family:var(--display);font-weight:700;letter-spacing:.24em;text-transform:uppercase;font-size:.78rem;color:var(--hl)}
+.pager .next b{display:block;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1}
+.pager .next:hover b{color:var(--hl)}
+footer{background:var(--night);color:var(--night-muted);border-top:1px solid rgba(255,255,255,.1)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;padding-block:18px 30px;font-size:.82rem}
+
+.hero{padding-block:clamp(36px,6vw,72px) clamp(56px,8vw,96px)}
+.hero h1{font-size:clamp(3.6rem,11vw,8.2rem);line-height:.86}
+.hero .meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero .by{font-family:var(--display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.82rem;margin-top:22px;display:inline-block;background:var(--red);color:var(--red-ink);padding:8px 12px}
+.ask-band{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between}
+.ask-band b{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.4rem,3vw,2.1rem);line-height:1}
+.pagehead{padding-block:clamp(40px,6vw,72px) clamp(28px,4vw,40px)}
+.pagehead h1{font-size:clamp(2.8rem,8vw,6rem);line-height:.88}
+/* typology */
+.typo{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr))}
+.typo .card h3{margin:0 0 8px;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.2rem}
+.typo ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.typo li{font-size:.86rem;background:var(--print);padding:3px 8px;line-height:1.3}
+.typo .card.dark li{background:rgba(255,255,255,.1)}
+/* compare */
+.tbl tbody th{width:24%}
+/* quotes */
+.qs{display:grid;gap:14px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.qs .card{min-height:150px}
+.qs .card:nth-child(3n+2){background:var(--hl)}
+.qs .card:nth-child(4n){background:var(--night);color:var(--night-ink)}
+.qs .card:nth-child(4n) .num{color:var(--hl)}
+.qs h3{font-family:var(--display);font-weight:700;font-size:1.2rem;line-height:1.2;margin:0}
+@media (max-width:980px){.qs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.qs{grid-template-columns:minmax(0,1fr)}}
+.format .num{font-size:clamp(2.6rem,5vw,3.6rem)}
+.stories .card h3{font-family:var(--display);font-weight:800;font-size:1.45rem;line-height:1.05;margin:0}
+.stories .card.open{background:transparent;box-shadow:none;outline:2px dashed var(--red);outline-offset:-2px}
+.pilot h2{font-size:clamp(3rem,8vw,5.6rem)}
+
+/* layer stack */
+.matrix{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center;--g:34px;--s:250px;--pr:#c8323f;--su:#3f7a4a;--ho:#2f6f8f}
+.stackwrap{position:relative;height:calc(var(--s)*.72 + var(--g)*9 + 80px);overflow:visible}
+.stack{position:absolute;left:50%;bottom:calc(var(--s)*.2);width:var(--s);height:var(--s);margin-left:calc(var(--s)/-2);transform:rotateX(58deg) rotateZ(-42deg);transform-style:preserve-3d}
+.plate{position:absolute;inset:0;transform:translateZ(calc(var(--i)*var(--g)));border:1.5px solid var(--ink);background-color:rgba(243,238,223,.55);transition:opacity .35s,box-shadow .35s;pointer-events:none;box-shadow:0 0 0 1px rgba(255,255,255,.25) inset}
+.plate .pn,.plate .pt{position:absolute;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);background:var(--print);padding:2px 6px;line-height:1.1;pointer-events:none}
+.plate .pn{left:-1px;top:-1px;background:var(--ink);color:var(--hl);font-size:.72rem}
+.plate .pt{right:-1px;bottom:-1px;font-size:.72rem}
+.thread{position:absolute;width:0;height:calc((var(--b) - var(--a))*var(--g));transform-origin:top;transform:translateZ(calc(var(--a)*var(--g))) rotateX(90deg);border-left:2px solid var(--pr);color:var(--pr);opacity:.8;pointer-events:none;transition:opacity .3s}
+.thread.t-s{border-left-color:var(--su);color:var(--su)}.thread.t-h{border-left-color:var(--ho);color:var(--ho)}
+.thread.w3{border-left-width:3px}.thread.w1{opacity:.5}
+.thread::before,.thread::after{content:"";position:absolute;left:-4.5px;width:7px;height:7px;border-radius:50%;background:currentColor}
+.thread::before{top:-3px}.thread::after{bottom:-3px}
+.matrix.has-on .plate{opacity:.14}
+.matrix.has-on .plate.link{opacity:.7}
+.matrix.has-on .plate.on{opacity:1;box-shadow:0 0 0 3px var(--red),0 14px 24px rgba(0,0,0,.2)}
+.matrix.has-on .thread{opacity:0}
+.matrix.has-on .thread.on{opacity:1;border-left-width:4px}
+/* layer patterns, drawn like plan hatches */
+.pl-natural{background-color:rgba(63,122,74,.55)!important;background-image:radial-gradient(circle at 30% 40%,rgba(30,80,40,.9) 0 14%,transparent 15%),radial-gradient(circle at 70% 70%,rgba(30,80,40,.8) 0 18%,transparent 19%),linear-gradient(160deg,transparent 46%,rgba(47,111,143,.95) 47% 55%,transparent 56%);background-size:60px 60px,90px 90px,100% 100%}
+.pl-fauna{background-image:radial-gradient(circle,var(--ink) 1.4px,transparent 1.6px);background-size:14px 17px}
+.pl-formal{background-color:rgba(63,122,74,.35)!important;background-image:linear-gradient(rgba(63,122,74,.9) 2px,transparent 2px),linear-gradient(90deg,rgba(63,122,74,.9) 2px,transparent 2px);background-size:42px 42px}
+.pl-informal{background-image:repeating-linear-gradient(45deg,rgba(236,225,90,.95) 0 5px,transparent 5px 14px)}
+.pl-built{background-image:linear-gradient(90deg,rgba(199,154,42,.85) 0 70%,transparent 70%),linear-gradient(rgba(199,154,42,.85) 0 70%,transparent 70%);background-size:36px 36px;background-blend-mode:multiply}
+.pl-civic{background-image:linear-gradient(90deg,rgba(35,35,35,.78) 0 45%,transparent 45%),linear-gradient(rgba(35,35,35,.78) 0 45%,transparent 45%);background-size:44px 44px;background-blend-mode:darken;background-position:6px 6px}
+.pl-transport{background-image:linear-gradient(90deg,transparent 47%,var(--red) 47% 53%,transparent 53%),linear-gradient(transparent 30%,var(--red) 30% 35%,transparent 35% 72%,var(--red) 72% 76%,transparent 76%),linear-gradient(35deg,transparent 49%,var(--red) 49% 52%,transparent 52%)}
+.pl-mobility{background-image:repeating-linear-gradient(90deg,var(--ink) 0 12px,transparent 12px 22px),repeating-linear-gradient(90deg,var(--red) 0 8px,transparent 8px 26px);background-size:100% 3px,100% 3px;background-position:0 32%,0 74%;background-repeat:no-repeat}
+.pl-people{background-image:radial-gradient(circle,var(--red) 3.5px,transparent 4px),radial-gradient(circle,var(--ink) 2.5px,transparent 3px);background-size:34px 29px,23px 37px;background-position:4px 6px,15px 2px}
+/* legend */
+.legend{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:4px}
+.lay{all:unset;box-sizing:border-box;display:grid;grid-template-columns:30px 28px minmax(0,1fr) auto;align-items:center;gap:8px;width:100%;padding:7px 10px;cursor:pointer;border-left:3px solid transparent;transition:background .2s,border-color .2s,opacity .2s}
+.lay .sw{display:block;width:30px;height:18px;border:1.5px solid var(--ink);background-color:rgba(243,238,223,.6)}
+.lay .ln{font-family:var(--display);font-weight:800;color:var(--red);font-size:.85rem}
+.lay .lt{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.95rem}
+.lay .lc{display:flex;gap:3px}
+.lay .lc i{width:7px;height:7px;border-radius:50%;background:var(--pr)}
+.lay .lc i.t-s{background:var(--su)}.lay .lc i.t-h{background:var(--ho)}
+.lay:hover,.lay[aria-pressed="true"]{background:var(--card);border-left-color:var(--red)}
+.lay:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.ldetail{background:var(--ink);color:var(--night-ink);padding:18px 20px;min-height:200px}
+.ldetail .kicker{color:var(--hl)}
+.ldetail h3{font-size:1.7rem;margin:0 0 6px}
+.ldetail p{margin:0 0 12px;color:var(--night-muted)}
+.ldetail ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.ldetail li{font-size:.86rem;background:rgba(255,255,255,.1);padding:3px 8px}
+.ldetail .conn-h{margin:14px 0 6px;font-family:var(--display);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;color:var(--hl)}
+.ldetail .conn li{display:flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.2)}
+.ldetail .conn li i{width:8px;height:8px;border-radius:50%;background:var(--pr)}
+.ldetail .conn li i.t-s{background:var(--su)}.ldetail .conn li i.t-h{background:var(--ho)}
+/* connection matrix */
+.conx{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);margin-top:clamp(40px,6vw,64px);padding-top:clamp(28px,4vw,40px);border-top:2px dashed var(--red);align-items:start;--pr:#c8323f;--su:#3f7a4a;--ho:#2f6f8f}
+.mkey{list-style:none;margin:16px 0 18px;padding:0;display:grid;gap:7px;font-size:.92rem}
+.mkey li{display:flex;align-items:center;gap:10px}
+.mk{width:14px;height:14px;border-radius:50%;background:var(--pr);flex:none}
+.mk.t-s{background:var(--su)}.mk.t-h{background:var(--ho)}
+.mdots{display:flex;align-items:center;gap:4px;flex:none}
+.mdots i{border-radius:50%;background:var(--ink);width:6px;height:6px}.mdots i:nth-child(2){width:10px;height:10px}.mdots i:nth-child(3){width:14px;height:14px}
+.mcap{background:var(--card);padding:16px 18px;box-shadow:0 6px 16px rgba(0,0,0,.08);min-height:150px;border-left:5px solid var(--pr)}
+.mcap.t-s{border-left-color:var(--su)}.mcap.t-h{border-left-color:var(--ho)}
+.mcap h4{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.35rem;line-height:1.05;margin:0 0 8px}
+.mcap p{margin:0;font-size:.98rem}
+.mxwrap{overflow-x:auto}
+.mx{display:grid;grid-template-columns:minmax(120px,190px) repeat(9,minmax(30px,1fr));gap:3px;min-width:420px}
+.mx-lab{display:flex;align-items:center;gap:8px;font-size:.84rem;line-height:1.15;padding-right:6px;transition:color .2s}
+.mx-lab b{font-family:var(--display);color:var(--red);font-size:.85rem}
+.mx-c{all:unset;box-sizing:border-box;aspect-ratio:1;display:grid;place-items:center;background:var(--print);cursor:pointer;transition:background .2s,opacity .2s}
+.mx-c i{display:block;border-radius:50%;background:var(--pr);width:30%;height:30%;transition:transform .2s}
+.mx-c.w2 i{width:48%;height:48%}.mx-c.w3 i{width:68%;height:68%}
+.mx-c.t-s i{background:var(--su)}.mx-c.t-h i{background:var(--ho)}
+.mx-c:hover i,.mx-c:focus-visible i,.mx-c.on i{transform:scale(1.18)}
+.mx-c:hover,.mx-c.on{background:var(--hl)}
+.mx-c:focus-visible{outline:3px solid var(--ink);outline-offset:1px}
+.mx-d{aspect-ratio:1;border:1.5px solid var(--ink)}
+.mx-e{aspect-ratio:1}
+.mx-f{text-align:center;font-family:var(--display);font-weight:800;color:var(--red);font-size:.8rem;padding-top:4px}
+.mx.dim .mx-c:not(.rel){opacity:.18}
+.mx-lab.hi b,.mx-f.hi{color:var(--ink);background:var(--hl)}
+.mx-lab.hi{font-weight:700}
+@media (max-width:900px){.matrix{grid-template-columns:minmax(0,1fr);--s:210px;--g:28px}.conx{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.mx{grid-template-columns:34px repeat(9,minmax(26px,1fr));min-width:0}.mx-lab span{display:none}}
+@media (max-width:420px){.matrix{--s:170px;--g:24px}.plate .pt{font-size:.6rem}}
+/* state page */
+.scales{display:grid;gap:18px;grid-template-columns:repeat(6,minmax(0,1fr));align-items:end}
+.scales figure:nth-child(odd){--r:-1.5deg}.scales figure:nth-child(even){--r:1.2deg}
+.scales figcaption b{display:block;color:var(--red);font-size:1rem;text-transform:uppercase;letter-spacing:.04em}
+.scales figcaption span{font-family:var(--body);font-weight:400;font-size:.82rem;color:var(--muted)}
+.scales img{aspect-ratio:4/5;object-fit:cover}
+@media (max-width:980px){.scales{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){.scales{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tiles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.tile{position:relative;aspect-ratio:6/7;overflow:hidden;background:var(--red);outline-offset:2px;cursor:default}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.62);transform:scale(1.02);transition:filter .35s ease,transform .5s ease}
+.tile .tn{position:absolute;top:8px;left:10px;font-family:var(--display);font-weight:800;font-size:.85rem;color:var(--hl);z-index:2;letter-spacing:.06em}
+.tile .tl-name{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px 10px 10px;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(.78rem,1.05vw,.95rem);line-height:1.12;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.78));transition:background .35s ease,color .35s ease,padding .35s ease}
+.tile:hover img,.tile:focus img{filter:none;transform:scale(1.08)}
+.tile:hover .tl-name,.tile:focus .tl-name{background:var(--hl);color:var(--ink);padding-top:10px}
+.tile.text{background:#3a3c40;display:flex}
+.tile.text .tl-name{position:static;align-self:flex-end;background:none;padding:12px 10px}
+.tile.text:hover,.tile.text:focus{background:var(--red)}
+.tile.text:hover .tl-name,.tile.text:focus .tl-name{background:none;color:#fff}
+@media (max-width:980px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:620px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile .tl-name{font-size:.8rem}}
+@media (hover:none){.tile img{filter:grayscale(.3) brightness(.8)}}
+.signs{list-style:none;padding:0;margin:0;columns:3 260px;column-gap:28px;counter-reset:s}
+.signs li{break-inside:avoid;counter-increment:s;display:grid;grid-template-columns:34px minmax(0,1fr);gap:6px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14);line-height:1.35}
+.signs li::before{content:counter(s,decimal-leading-zero);font-family:var(--display);font-weight:800;color:var(--hl)}
+.chapter{border-top:6px solid var(--red)}
+.chapter .cnum{font-family:var(--display);font-weight:900;font-size:clamp(4rem,10vw,7rem);line-height:.8;color:var(--red);opacity:.9}
+.newsgrid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));align-items:start}
+.newsgrid .news{margin-top:0}
+.news{margin-top:26px;background:var(--card);padding:18px 20px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+.night .news{background:#34363a}
+.news ul{list-style:none;margin:0;padding:0}
+.news li{padding:9px 0;border-bottom:1px solid var(--rule);display:grid;gap:2px}
+.night .news li{border-bottom-color:rgba(255,255,255,.12)}
+.news li:last-child{border-bottom:0}
+.news a{font-weight:600;text-decoration-thickness:1px;text-underline-offset:3px}
+.news a:hover{color:var(--red)}
+.night .news a:hover{color:var(--hl)}
+.news span{font-size:.8rem;color:var(--muted)}
+.night .news span{color:var(--night-muted)}
+.fact{background:var(--hl);color:var(--ink);padding:14px 16px;font-family:var(--display);font-weight:700;font-size:1.05rem;line-height:1.35;margin:18px 0 0}
+.chart{display:grid;gap:10px;margin-top:8px}
+.bar{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;align-items:center}
+.bar .lab{text-align:right;font-weight:600;font-size:.95rem}
+.bar .track{position:relative;height:30px}
+.bar .track::before{content:"";position:absolute;top:-6px;bottom:-6px;left:calc(10/31.7*78%);width:calc(2/31.7*78%);background:var(--hl);opacity:.9}
+.bar .fill{position:relative;height:100%;background:var(--ink);width:calc(var(--v)/31.7*78%);min-width:4px}
+.bar.low .fill{background:var(--red)}
+.bar.paper .fill{background:transparent;outline:2px dashed var(--red);outline-offset:-2px}
+.bar .val{position:absolute;left:calc(var(--v)/31.7*78% + 10px);top:50%;transform:translateY(-50%);font-family:var(--display);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar.low .val,.bar.paper .val{color:var(--red)}
+.axis{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px}
+.axis span{position:relative;display:block;height:1.2em;font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+.axis span i{position:absolute;left:calc(10/31.7*78%);font-style:normal;white-space:nowrap}
+.steps{display:grid;gap:12px;grid-template-columns:repeat(5,minmax(0,1fr))}
+.steps .card{color:var(--ink)}
+.steps .card:nth-child(4){background:var(--hl)}
+.steps .card:nth-child(5){background:var(--red);color:var(--red-ink)}
+.steps .card:nth-child(5) .num{color:var(--red-ink)}
+.steps h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.15rem}
+@media (max-width:980px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.steps{grid-template-columns:minmax(0,1fr)}}
+.timeline{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+.timeline li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px}
+.timeline b{font-family:var(--display);font-weight:800;color:var(--red);font-size:1.2rem}
+.tekdis{display:grid;gap:22px;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:760px){.tekdis{grid-template-columns:minmax(0,1fr)}}
+.res{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.res a{display:block;text-decoration:none}
+.res a b{display:block;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.3rem;line-height:1.05}
+.res a:hover b{color:var(--red)}
+/* film page */
+.tl{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:0;border-top:3px solid var(--red);margin-top:10px}
+.tl div{padding:14px 10px 0 0;position:relative}
+.tl div::before{content:"";position:absolute;top:-9px;left:0;width:15px;height:15px;border-radius:50%;background:var(--red)}
+.tl div:last-child::before{background:var(--hl);outline:2px solid var(--red)}
+.tl b{display:block;font-family:var(--display);font-weight:800;font-size:1.2rem;color:var(--red)}
+.tl span{display:block;font-size:.86rem;line-height:1.35}
+@media (max-width:980px){.tl{grid-template-columns:minmax(0,1fr);border-top:0;border-left:3px solid var(--red);margin-left:7px}.tl div{padding:0 0 16px 22px}.tl div::before{top:4px;left:-9px}}
+.stills{display:grid;gap:14px;grid-template-columns:repeat(4,minmax(0,1fr));align-items:start}
+.stills figure:nth-child(3n+1){--r:-1.2deg}.stills figure:nth-child(3n+2){--r:.9deg}.stills figure:nth-child(3n){--r:-.4deg}
+.stills img{aspect-ratio:16/10;object-fit:cover}
+.stills .wide{grid-column:span 2}
+.stills .tall img{aspect-ratio:4/5}
+@media (max-width:860px){.stills{grid-template-columns:repeat(2,minmax(0,1fr))}.stills .wide{grid-column:span 2}}
+.formats{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.formats span{font-family:var(--display);font-weight:700;font-size:.9rem;padding:5px 10px}
+.people{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr))}
+.person{margin:0;background:var(--print);padding:8px 8px 14px;box-shadow:0 1px 1px rgba(0,0,0,.08),0 10px 24px rgba(0,0,0,.18);display:flex;flex-direction:column}
+.person:nth-child(odd){transform:rotate(-.6deg)}.person:nth-child(even){transform:rotate(.6deg)}
+.person img{width:100%;aspect-ratio:21/26;object-fit:cover}
+.person .ph{aspect-ratio:21/26;background:var(--red);display:grid;place-items:center;color:var(--red-ink);font-family:var(--display);font-weight:900;font-size:3rem}
+.person b{display:block;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.02rem;line-height:1.1;margin-top:10px}
+.person span{display:block;font-size:.84rem;color:var(--muted);line-height:1.35;margin-top:4px}
+.person a{margin-top:auto;padding-top:10px;font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);text-decoration:none}
+.person a:hover{text-decoration:underline}
+.team .person img{aspect-ratio:1/1;filter:grayscale(1)}
+.team .person .ph{aspect-ratio:1/1}
+.crew{display:grid;gap:12px}
+.crew div{background:var(--card);padding:14px 16px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.crew b{display:block;font-family:var(--display);font-weight:800;font-size:1.15rem}
+.path{width:100%;border-collapse:collapse;min-width:820px}
+.path th,.path td{padding:12px;border:1px solid var(--rule);vertical-align:top;font-size:.92rem;line-height:1.4;text-align:left}
+.path thead th{background:var(--red);color:var(--red-ink);font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:.86rem}
+.path tbody th{font-family:var(--display);font-weight:700;background:var(--card);width:16%}
+.path td{background:var(--print)}
+.ask ol{padding-left:0;list-style:none;margin:0;counter-reset:a}
+.ask li{counter-increment:a;display:grid;grid-template-columns:40px minmax(0,1fr);gap:8px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.25);font-size:1.05rem}
+.ask li::before{content:counter(a);font-family:var(--display);font-weight:800;font-size:1.5rem;color:var(--hl);line-height:1.1}
+.gets{list-style:none;padding:0;margin:0}
+.gets li{padding:12px 0;border-bottom:1px solid var(--rule)}
+.shots tbody th{color:var(--hl);font-size:1rem;width:12%}
+.shots td:last-child{color:var(--night-muted)}
+.mail{font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,3vw,1.7rem);user-select:all;word-break:break-all}
+.sr{position:absolute;left:-9999px}
+</style><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style></head><body><header class="top"><div class="wrap"><a class="brand" href="index.html">The Space <b>Within</b></a><nav aria-label="Pages"><ul class="pages"><li><a href="index.html" aria-current="page"><span class="n">01</span>The Series</a></li><li><a href="state.html"><span class="n">02</span>State of Urban Spaces</a></li><li><a href="film.html"><span class="n">03</span>The Film</a></li></ul></nav><a class="btn" href="film.html#partner">Partner with us</a></div></header>
+<main>
+<section class="hero">
+  <div class="wrap split wide-left">
+    <div>
+      <p class="kicker">A documentary series in production · Rethink urban spaces</p>
+      <h1 class="disp">The<br>Space<br>Within</h1>
+      <p style="margin-top:26px"><span class="hl big">Who encroached our city?</span></p>
+      <p class="lede">A documentary series on how Indian cities are shaped, and the public spaces that hold them together.</p>
+      <span class="by">Series in production · Created by Amar Kulkarni</span>
+      <div class="meta"><a class="btn" href="#series">The series</a><a class="btn ghost" href="state.html">The state of urban spaces</a></div>
+    </div>
+    <figure class="print" style="--r:1.5deg"><img src="img/hero_traffic.webp" alt="Rows of car headlights jammed on a city road at night" width="1600" height="1412"><figcaption>Uncontrolled urbanisation?</figcaption></figure>
+  </div>
+</section>
+
+<section id="idea">
+  <div class="wrap split">
+    <div>
+      <p class="kicker">The idea</p>
+      <h2 class="disp">People shape cities. <span style="color:var(--red)">Cities shape people.</span></h2>
+      <p style="margin-top:22px"><span class="hl big">So who decides the shape?</span></p>
+      <p class="lede" style="margin-top:14px">The series looks at how Indian cities are shaped, by plans, roads, land markets, courts and the people who live in them. And at the public spaces that connect a city and hold it together: streets, hills, rivers, parks, playgrounds.</p>
+      <p>Every city has a plan that reserves them. We follow the paper trail to see where they went.</p>
+    </div>
+    <div>
+      <figure class="print dash" style="--r:-1deg"><img src="img/taljai.webp" alt="Satellite view of Taljai hill in Pune, a dark green forest with dense buildings pressing against every edge" loading="lazy" width="1520" height="1270"><figcaption>Taljai hill, Pune: a forest boxed in by the city</figcaption></figure>
+      <p class="credit">Imagery: Google Earth</p>
+    </div>
+  </div>
+</section>
+
+<section class="tight" id="fabric">
+  <div class="wrap">
+    <div class="split" style="align-items:end;margin-bottom:34px">
+      <div><p class="kicker">How it works</p><h2 class="disp">Understanding the fabric of urban public space</h2></div>
+      <p class="lede" style="margin:0"><b>What connects you to your city is the urban public space,</b> formed by a complex matrix of built, unbuilt and natural spaces. Streets, parks, heritage areas, markets, open grounds, riversides, hills and public transport act as corridors for our social and environmental life in the city.</p>
+    </div>
+    <div class="matrix">
+  <div class="stackwrap" aria-hidden="true"><div class="stack"><div class="plate pl-natural" data-i="0" style="--i:0"><span class="pn">01</span><span class="pt">Natural spaces</span></div><div class="plate pl-fauna" data-i="1" style="--i:1"><span class="pn">02</span><span class="pt">Fauna</span></div><div class="plate pl-formal" data-i="2" style="--i:2"><span class="pn">03</span><span class="pt">Formal spaces</span></div><div class="plate pl-informal" data-i="3" style="--i:3"><span class="pn">04</span><span class="pt">Informal spaces</span></div><div class="plate pl-built" data-i="4" style="--i:4"><span class="pn">05</span><span class="pt">Built fabric</span></div><div class="plate pl-civic" data-i="5" style="--i:5"><span class="pn">06</span><span class="pt">Built public spaces</span></div><div class="plate pl-transport" data-i="6" style="--i:6"><span class="pn">07</span><span class="pt">Transport spaces</span></div><div class="plate pl-mobility" data-i="7" style="--i:7"><span class="pn">08</span><span class="pt">Mobility</span></div><div class="plate pl-people" data-i="8" style="--i:8"><span class="pn">09</span><span class="pt">People</span></div><i class="thread t-s w3" data-k="0" style="left:-5%;top:5.0%;--a:0;--b:1"></i><i class="thread t-s w2" data-k="1" style="top:105%;left:5.0%;--a:0;--b:2"></i><i class="thread t-h w2" data-k="2" style="left:-5%;top:10.2%;--a:0;--b:3"></i><i class="thread t-p w3" data-k="3" style="top:105%;left:10.2%;--a:0;--b:4"></i><i class="thread t-p w1" data-k="4" style="left:-5%;top:15.4%;--a:0;--b:5"></i><i class="thread t-p w3" data-k="5" style="top:105%;left:15.4%;--a:0;--b:6"></i><i class="thread t-p w2" data-k="6" style="left:-5%;top:20.6%;--a:0;--b:7"></i><i class="thread t-s w3" data-k="7" style="top:105%;left:20.6%;--a:0;--b:8"></i><i class="thread t-s w2" data-k="8" style="left:-5%;top:25.8%;--a:1;--b:2"></i><i class="thread t-s w1" data-k="9" style="top:105%;left:25.8%;--a:1;--b:3"></i><i class="thread t-p w2" data-k="10" style="left:-5%;top:31.0%;--a:1;--b:4"></i><i class="thread t-h w1" data-k="11" style="top:105%;left:31.0%;--a:1;--b:5"></i><i class="thread t-p w2" data-k="12" style="left:-5%;top:36.2%;--a:1;--b:6"></i><i class="thread t-p w2" data-k="13" style="top:105%;left:36.2%;--a:1;--b:7"></i><i class="thread t-s w2" data-k="14" style="left:-5%;top:41.4%;--a:1;--b:8"></i><i class="thread t-p w2" data-k="15" style="top:105%;left:41.4%;--a:2;--b:3"></i><i class="thread t-p w3" data-k="16" style="left:-5%;top:46.6%;--a:2;--b:4"></i><i class="thread t-h w1" data-k="17" style="top:105%;left:46.6%;--a:2;--b:5"></i><i class="thread t-p w2" data-k="18" style="left:-5%;top:51.8%;--a:2;--b:6"></i><i class="thread t-p w2" data-k="19" style="top:105%;left:51.8%;--a:2;--b:7"></i><i class="thread t-s w3" data-k="20" style="left:-5%;top:57.0%;--a:2;--b:8"></i><i class="thread t-p w3" data-k="21" style="top:105%;left:57.0%;--a:3;--b:4"></i><i class="thread t-h w2" data-k="22" style="left:-5%;top:62.2%;--a:3;--b:5"></i><i class="thread t-h w3" data-k="23" style="top:105%;left:62.2%;--a:3;--b:6"></i><i class="thread t-p w2" data-k="24" style="left:-5%;top:67.4%;--a:3;--b:7"></i><i class="thread t-s w3" data-k="25" style="top:105%;left:67.4%;--a:3;--b:8"></i><i class="thread t-h w2" data-k="26" style="left:-5%;top:72.6%;--a:4;--b:5"></i><i class="thread t-h w3" data-k="27" style="top:105%;left:72.6%;--a:4;--b:6"></i><i class="thread t-p w2" data-k="28" style="left:-5%;top:77.8%;--a:4;--b:7"></i><i class="thread t-p w3" data-k="29" style="top:105%;left:77.8%;--a:4;--b:8"></i><i class="thread t-h w3" data-k="30" style="left:-5%;top:83.0%;--a:5;--b:6"></i><i class="thread t-h w3" data-k="31" style="top:105%;left:83.0%;--a:5;--b:7"></i><i class="thread t-s w3" data-k="32" style="left:-5%;top:88.2%;--a:5;--b:8"></i><i class="thread t-p w3" data-k="33" style="top:105%;left:88.2%;--a:6;--b:7"></i><i class="thread t-p w3" data-k="34" style="left:-5%;top:93.4%;--a:6;--b:8"></i><i class="thread t-p w3" data-k="35" style="top:105%;left:93.4%;--a:7;--b:8"></i></div></div>
+  <div class="mside">
+    <ol class="legend" aria-label="Layers of urban public space, top to bottom"><li><button type="button" class="lay" data-i="8" aria-pressed="false"><i class="sw pl-people"></i><span class="ln">09</span><span class="lt">People</span><span class="lc" data-c="8"></span></button></li><li><button type="button" class="lay" data-i="7" aria-pressed="false"><i class="sw pl-mobility"></i><span class="ln">08</span><span class="lt">Mobility</span><span class="lc" data-c="7"></span></button></li><li><button type="button" class="lay" data-i="6" aria-pressed="false"><i class="sw pl-transport"></i><span class="ln">07</span><span class="lt">Transport spaces</span><span class="lc" data-c="6"></span></button></li><li><button type="button" class="lay" data-i="5" aria-pressed="false"><i class="sw pl-civic"></i><span class="ln">06</span><span class="lt">Built public spaces</span><span class="lc" data-c="5"></span></button></li><li><button type="button" class="lay" data-i="4" aria-pressed="false"><i class="sw pl-built"></i><span class="ln">05</span><span class="lt">Built fabric</span><span class="lc" data-c="4"></span></button></li><li><button type="button" class="lay" data-i="3" aria-pressed="false"><i class="sw pl-informal"></i><span class="ln">04</span><span class="lt">Informal spaces</span><span class="lc" data-c="3"></span></button></li><li><button type="button" class="lay" data-i="2" aria-pressed="false"><i class="sw pl-formal"></i><span class="ln">03</span><span class="lt">Formal spaces</span><span class="lc" data-c="2"></span></button></li><li><button type="button" class="lay" data-i="1" aria-pressed="false"><i class="sw pl-fauna"></i><span class="ln">02</span><span class="lt">Fauna</span><span class="lc" data-c="1"></span></button></li><li><button type="button" class="lay" data-i="0" aria-pressed="false"><i class="sw pl-natural"></i><span class="ln">01</span><span class="lt">Natural spaces</span><span class="lc" data-c="0"></span></button></li></ol>
+    <div class="ldetail"><div class="lpanel" data-i="0"><p class="kicker">Layer 01 of 9</p><h3 class="disp">Natural spaces</h3><p>The ground everything else is laid on</p><ul><li>Hills</li><li>Mountains</li><li>Rivers and tributaries</li><li>Ocean and beaches</li><li>Lakes</li><li>Urban forests</li><li>Trees</li><li>Grasslands</li></ul><p class="conn-h">Connected to</p><ul class="conn" data-conn="0"></ul></div><div class="lpanel" data-i="1" hidden><p class="kicker">Layer 02 of 9</p><h3 class="disp">Fauna</h3><p>Life that shares the city with us</p><ul><li>Birds</li><li>Amphibians</li><li>Reptiles</li><li>Snails</li><li>Ants</li><li>Insects</li><li>Mammals</li><li>Aquatic insects</li><li>Fishes</li></ul><p class="conn-h">Connected to</p><ul class="conn" data-conn="1"></ul></div><div class="lpanel" data-i="2" hidden><p class="kicker">Layer 03 of 9</p><h3 class="disp">Formal spaces</h3><p>Open space the plan reserves</p><ul><li>Gardens</li><li>Community farms</li><li>Historical places</li><li>Playgrounds</li><li>Sports arenas</li><li>Public squares and plazas</li><li>Open air auditoriums</li><li>Kids&#x27; play areas</li><li>Fountains</li></ul><p class="conn-h">Connected to</p><ul class="conn" data-conn="2"></ul></div><div class="lpanel" data-i="3" hidden><p class="kicker">Layer 04 of 9</p><h3 class="disp">Informal spaces</h3><p>Space people claim without a plan</p><ul><li>Verandahs</li><li>Brownfields</li><li>Leftover patches</li><li>Community spaces</li><li>Slum fabric spaces</li><li>Street front spaces</li><li>Open and grey markets</li><li>Vacant lots</li></ul><p class="conn-h">Connected to</p><ul class="conn" data-conn="3"></ul></div><div class="lpanel" data-i="4" hidden><p class="kicker">Layer 05 of 9</p><h3 class="disp">Built fabric</h3><p>The city&#x27;s blocks and districts</p><ul><li>Downtown</li><li>Old city</li><li>Heritage</li><li>Historical</li><li>Gated city</li><li>Commercial</li><li>Residential</li><li>Industrial</li><li>Mixed land use</li></ul><p class="conn-h">Connected to</p><ul class="conn" data-conn="4"></ul></div><div class="lpanel" data-i="5" hidden><p class="kicker">Layer 06 of 9</p><h3 class="disp">Built public spaces</h3><p>Buildings everyone can walk into</p><ul><li>Railway stations</li><li>Airports</li><li>Bus stands and stops</li><li>Community halls</li><li>Public libraries</li><li>Post offices</li><li>Markets</li></ul><p class="conn-h">Connected to</p><ul class="conn" data-conn="5"></ul></div><div class="lpanel" data-i="6" hidden><p class="kicker">Layer 07 of 9</p><h3 class="disp">Transport spaces</h3><p>The network that ties it together</p><ul><li>Footpaths</li><li>Pathways</li><li>Cycle tracks</li><li>Streets</li><li>Bridges</li><li>Street side spaces</li><li>Bus and tram stops</li><li>Street green infrastructure</li></ul><p class="conn-h">Connected to</p><ul class="conn" data-conn="6"></ul></div><div class="lpanel" data-i="7" hidden><p class="kicker">Layer 08 of 9</p><h3 class="disp">Mobility</h3><p>What moves through the network</p><ul><li>Walking</li><li>Bikes</li><li>Cars</li><li>Commercial vehicles</li><li>Three wheelers</li><li>Tram</li><li>Trolley</li><li>Bus</li><li>BRT</li><li>Metro and subway</li></ul><p class="conn-h">Connected to</p><ul class="conn" data-conn="7"></ul></div><div class="lpanel" data-i="8" hidden><p class="kicker">Layer 09 of 9</p><h3 class="disp">People</h3><p>Who all of it is for</p><ul><li>Walkers</li><li>Vendors</li><li>Children</li><li>Elders</li><li>Workers</li><li>Residents</li><li>Visitors</li><li>Everyone</li></ul><p class="conn-h">Connected to</p><ul class="conn" data-conn="8"></ul></div></div>
+  </div>
+</div>
+<div class="conx">
+  <div>
+    <p class="kicker">How the layers act on each other</p>
+    <h3 class="disp" style="font-size:clamp(1.8rem,4vw,2.8rem)">36 connections</h3>
+    <p style="margin-top:10px">Every layer touches every other. Most of the pressure runs one way: the built, moving city eats into the natural and open ground beneath it.</p>
+    <ul class="mkey"><li><i class="mk t-p"></i>Pressure: one layer eats into the other</li><li><i class="mk t-s"></i>Sustains: one layer keeps the other alive</li><li><i class="mk t-h"></i>Hosts: one layer carries or serves the other</li><li><span class="mdots"><i></i><i></i><i></i></span>Dot size: how strong the link is</li></ul>
+    <div class="mcap" aria-live="polite"><p class="kicker" id="mcap-k"></p><h4 id="mcap-t"></h4><p id="mcap-x"></p></div>
+  </div>
+  <div class="mxwrap"><div class="mx" role="group" aria-label="Connection matrix between the nine layers"><span class="mx-lab" data-i="8"><b>09</b><span>People</span></span><button type="button" class="mx-c t-s w3" data-k="7" data-a="0" data-b="8" aria-label="Natural spaces and People: The first public space"><i></i></button><button type="button" class="mx-c t-s w2" data-k="14" data-a="1" data-b="8" aria-label="Fauna and People: Shared lives"><i></i></button><button type="button" class="mx-c t-s w3" data-k="20" data-a="2" data-b="8" aria-label="Formal spaces and People: Where children play"><i></i></button><button type="button" class="mx-c t-s w3" data-k="25" data-a="3" data-b="8" aria-label="Informal spaces and People: Where people actually meet"><i></i></button><button type="button" class="mx-c t-p w3" data-k="29" data-a="4" data-b="8" aria-label="Built fabric and People: Sorted by spending"><i></i></button><button type="button" class="mx-c t-s w3" data-k="32" data-a="5" data-b="8" aria-label="Built public spaces and People: Open to anyone"><i></i></button><button type="button" class="mx-c t-p w3" data-k="34" data-a="6" data-b="8" aria-label="Transport spaces and People: The street as a shared room"><i></i></button><button type="button" class="mx-c t-p w3" data-k="35" data-a="7" data-b="8" aria-label="Mobility and People: Falling bus ridership"><i></i></button><span class="mx-d pl-people" title="People"></span><span class="mx-lab" data-i="7"><b>08</b><span>Mobility</span></span><button type="button" class="mx-c t-p w2" data-k="6" data-a="0" data-b="7" aria-label="Natural spaces and Mobility: Exhaust reaches the forest"><i></i></button><button type="button" class="mx-c t-p w2" data-k="13" data-a="1" data-b="7" aria-label="Fauna and Mobility: Roadkill and noise"><i></i></button><button type="button" class="mx-c t-p w2" data-k="19" data-a="2" data-b="7" aria-label="Formal spaces and Mobility: Parks or parking?"><i></i></button><button type="button" class="mx-c t-p w2" data-k="24" data-a="3" data-b="7" aria-label="Informal spaces and Mobility: Parking takes over"><i></i></button><button type="button" class="mx-c t-p w2" data-k="28" data-a="4" data-b="7" aria-label="Built fabric and Mobility: Built for cars"><i></i></button><button type="button" class="mx-c t-h w3" data-k="31" data-a="5" data-b="7" aria-label="Built public spaces and Mobility: Feeding the city"><i></i></button><button type="button" class="mx-c t-p w3" data-k="33" data-a="6" data-b="7" aria-label="Transport spaces and Mobility: Streets for whom?"><i></i></button><span class="mx-d pl-mobility" title="Mobility"></span><span class="mx-e"></span><span class="mx-lab" data-i="6"><b>07</b><span>Transport spaces</span></span><button type="button" class="mx-c t-p w3" data-k="5" data-a="0" data-b="6" aria-label="Natural spaces and Transport spaces: Roads over hills and rivers"><i></i></button><button type="button" class="mx-c t-p w2" data-k="12" data-a="1" data-b="6" aria-label="Fauna and Transport spaces: Split habitats"><i></i></button><button type="button" class="mx-c t-p w2" data-k="18" data-a="2" data-b="6" aria-label="Formal spaces and Transport spaces: Parks to parking"><i></i></button><button type="button" class="mx-c t-h w3" data-k="23" data-a="3" data-b="6" aria-label="Informal spaces and Transport spaces: Life on the footpath"><i></i></button><button type="button" class="mx-c t-h w3" data-k="27" data-a="4" data-b="6" aria-label="Built fabric and Transport spaces: Blocks and streets"><i></i></button><button type="button" class="mx-c t-h w3" data-k="30" data-a="5" data-b="6" aria-label="Built public spaces and Transport spaces: Where networks meet"><i></i></button><span class="mx-d pl-transport" title="Transport spaces"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-lab" data-i="5"><b>06</b><span>Built public spaces</span></span><button type="button" class="mx-c t-p w1" data-k="4" data-a="0" data-b="5" aria-label="Natural spaces and Built public spaces: Civic buildings on lost water"><i></i></button><button type="button" class="mx-c t-h w1" data-k="11" data-a="1" data-b="5" aria-label="Fauna and Built public spaces: Life around markets"><i></i></button><button type="button" class="mx-c t-h w1" data-k="17" data-a="2" data-b="5" aria-label="Formal spaces and Built public spaces: Civic centres"><i></i></button><button type="button" class="mx-c t-h w2" data-k="22" data-a="3" data-b="5" aria-label="Informal spaces and Built public spaces: Markets spill out"><i></i></button><button type="button" class="mx-c t-h w2" data-k="26" data-a="4" data-b="5" aria-label="Built fabric and Built public spaces: Within walking distance"><i></i></button><span class="mx-d pl-civic" title="Built public spaces"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-lab" data-i="4"><b>05</b><span>Built fabric</span></span><button type="button" class="mx-c t-p w3" data-k="3" data-a="0" data-b="4" aria-label="Natural spaces and Built fabric: Building over the ground"><i></i></button><button type="button" class="mx-c t-p w2" data-k="10" data-a="1" data-b="4" aria-label="Fauna and Built fabric: Pushed out"><i></i></button><button type="button" class="mx-c t-p w3" data-k="16" data-a="2" data-b="4" aria-label="Formal spaces and Built fabric: How a playground disappears"><i></i></button><button type="button" class="mx-c t-p w3" data-k="21" data-a="3" data-b="4" aria-label="Informal spaces and Built fabric: First to be cleared"><i></i></button><span class="mx-d pl-built" title="Built fabric"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-lab" data-i="3"><b>04</b><span>Informal spaces</span></span><button type="button" class="mx-c t-h w2" data-k="2" data-a="0" data-b="3" aria-label="Natural spaces and Informal spaces: Edges people use"><i></i></button><button type="button" class="mx-c t-s w1" data-k="9" data-a="1" data-b="3" aria-label="Fauna and Informal spaces: Wild corridors"><i></i></button><button type="button" class="mx-c t-p w2" data-k="15" data-a="2" data-b="3" aria-label="Formal spaces and Informal spaces: Playgrounds on paper"><i></i></button><span class="mx-d pl-informal" title="Informal spaces"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-lab" data-i="2"><b>03</b><span>Formal spaces</span></span><button type="button" class="mx-c t-s w2" data-k="1" data-a="0" data-b="2" aria-label="Natural spaces and Formal spaces: Carved from nature"><i></i></button><button type="button" class="mx-c t-s w2" data-k="8" data-a="1" data-b="2" aria-label="Fauna and Formal spaces: Refuges"><i></i></button><span class="mx-d pl-formal" title="Formal spaces"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-lab" data-i="1"><b>02</b><span>Fauna</span></span><button type="button" class="mx-c t-s w3" data-k="0" data-a="0" data-b="1" aria-label="Natural spaces and Fauna: Habitat"><i></i></button><span class="mx-d pl-fauna" title="Fauna"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-lab" data-i="0"><b>01</b><span>Natural spaces</span></span><span class="mx-d pl-natural" title="Natural spaces"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-e"></span><span class="mx-lab"></span><span class="mx-f" data-i="0">01</span><span class="mx-f" data-i="1">02</span><span class="mx-f" data-i="2">03</span><span class="mx-f" data-i="3">04</span><span class="mx-f" data-i="4">05</span><span class="mx-f" data-i="5">06</span><span class="mx-f" data-i="6">07</span><span class="mx-f" data-i="7">08</span><span class="mx-f" data-i="8">09</span></div></div>
+</div>
+<script id="pairs-data" type="application/json">[[0, 1, "s", 3, "Habitat", "Hills, rivers, lakes and trees are where birds, fish and insects live. When the ground goes, so do they."], [0, 2, "s", 2, "Carved from nature", "Gardens and playgrounds are cut from natural land and live on its soil, shade and water."], [0, 3, "h", 2, "Edges people use", "Riverbanks and hill slopes are used every day for walking, washing, grazing and play, without any plan."], [0, 4, "p", 3, "Building over the ground", "Floodplains, streams and tekdis are filled and built on. Bengaluru lost 79% of its water bodies in four decades."], [0, 5, "p", 1, "Civic buildings on lost water", "Bus stands, markets and halls are often built on filled lakes and buried streams."], [0, 6, "p", 3, "Roads over hills and rivers", "A link road across Vetal tekdi, riverside roads along the Mutha. Transport cuts straight through the natural layer."], [0, 7, "p", 2, "Exhaust reaches the forest", "Traffic brings PM2.5, noise and light to the edge of every hill and river."], [0, 8, "s", 3, "The first public space", "Clean air, shade, water and open ground. The natural layer is what people come out for."], [1, 2, "s", 2, "Refuges", "Parks with native trees become refuges for birds and insects in a built up city."], [1, 3, "s", 1, "Wild corridors", "Vacant lots and leftover patches turn into wild corridors no one designed."], [1, 4, "p", 2, "Pushed out", "Glass, concrete and night lighting push wildlife out of the built fabric."], [1, 5, "h", 1, "Life around markets", "Strays and pigeons live off markets, stations and the people around them."], [1, 6, "p", 2, "Split habitats", "Roads cut habitats in two. Animals die trying to cross."], [1, 7, "p", 2, "Roadkill and noise", "Traffic kills strays and wildlife, and noise drives birds away."], [1, 8, "s", 2, "Shared lives", "The neighbourhood dog, the morning birdsong. And the rising insensitivity towards animals in public space."], [2, 3, "p", 2, "Playgrounds on paper", "A reserved playground that is never built becomes an informal ground, then a parking lot."], [2, 4, "p", 3, "How a playground disappears", "Under Section 127, lapsed reservations go back to owners and become towers. Pune planned 174 playgrounds; 9 existed by 2013."], [2, 5, "h", 1, "Civic centres", "A garden beside a library or community hall makes a neighbourhood centre."], [2, 6, "p", 2, "Parks to parking", "Gardens lose ground to road widening and parking lots."], [2, 7, "p", 2, "Parks or parking?", "Cars park on grounds meant for play. Mumbai has 32 lakh cars and barely 1.24 m\u00b2 of open space per person."], [2, 8, "s", 3, "Where children play", "Where children play and elders walk. Pune has one playground for every 37,000 children under seven."], [3, 4, "p", 3, "First to be cleared", "Informal space is the first to be cleared, fenced and gated for development."], [3, 5, "h", 2, "Markets spill out", "Markets and stations spill into street fronts, and vendors gather where people wait."], [3, 6, "h", 3, "Life on the footpath", "Footpaths hold vendors, verandahs and street life, and the fights over encroachment."], [3, 7, "p", 2, "Parking takes over", "Vacant lots and street fronts fill with parked vehicles."], [3, 8, "s", 3, "Where people actually meet", "The chai stall, the katta, the market lane: where most Indians actually meet."], [4, 5, "h", 2, "Within walking distance", "Every neighbourhood needs a post office, a hall and a market it can walk to."], [4, 6, "h", 3, "Blocks and streets", "Blocks and streets shape each other. Gated cities break the street grid."], [4, 7, "p", 2, "Built for cars", "Parking podiums and flyovers past towers: development planned around the car."], [4, 8, "p", 3, "Sorted by spending", "Gated towers, malls and clubs sort people by what they can spend. A mall is not a public space."], [5, 6, "h", 3, "Where networks meet", "Stations and bus stops are where the transport network meets civic life."], [5, 7, "h", 3, "Feeding the city", "Buses, metro and rail carry people to stations, markets and offices."], [5, 8, "s", 3, "Open to anyone", "Libraries, stations and markets anyone can walk into without paying."], [6, 7, "p", 3, "Streets for whom?", "Streets are widened for cars while footpaths shrink. Private vehicles take over public space."], [6, 8, "p", 3, "The street as a shared room", "Broken footpaths, road rage and undisciplined traffic: the street stops being a shared room."], [7, 8, "p", 3, "Falling bus ridership", "Fewer buses, more private vehicles and dirtier air. India's cities face a 70% urban bus deficit."]]</script>
+<script id="layers-data" type="application/json">["Natural spaces", "Fauna", "Formal spaces", "Informal spaces", "Built fabric", "Built public spaces", "Transport spaces", "Mobility", "People"]</script>
+<p class="small" style="margin-top:14px">Select a layer to see its threads through the stack, or pick any dot in the matrix.</p>
+  </div>
+</section>
+
+<section class="night" id="public">
+  <div class="wrap">
+    <div class="head"><p class="kicker">Indicators of social change</p><h2 class="disp">Why public urban space, and not private?</h2><p class="lede" style="margin-top:14px">A mall is not a public space.</p></div>
+    <div class="scroll"><table class="tbl">
+      <thead><tr><th scope="col"><span class="sr">Question</span></th><th scope="col">Public urban spaces</th><th scope="col">Private urban spaces</th></tr></thead>
+      <tbody><tr><th scope="row">Examples</th><td>Parks, public squares, the street, riverbanks, natural places in the city</td><td>Malls, cafés and restaurants, private sports facilities, private leisure clubs</td></tr><tr><th scope="row">Owned by</th><td>The public</td><td>A private company</td></tr><tr><th scope="row">Who gets in</th><td>Everyone, despite social class, religion, caste, creed or colour</td><td>Restricted access: those who are let in</td></tr><tr><th scope="row">Cost</th><td>Free access for every social class</td><td>Paid access, one way or another</td></tr><tr><th scope="row">The poorest</th><td>Can walk into any public urban space without discrimination</td><td>Cannot access private urban spaces</td></tr><tr><th scope="row">What it does</th><td>Brings people together from various classes, castes, religions and nationalities</td><td>Creates social hierarchy, dividing people by their purchasing power</td></tr><tr><th scope="row">Effect on society</th><td>Socially inclusive. Promotes equity by serving everyone, especially vulnerable groups</td><td>Socially exclusive. More private urban space promotes inequality and consumerism</td></tr></tbody>
+    </table></div>
+    <p style="margin-top:26px"><span class="hl big">One holds a city together. The other divides it by purchasing power.</span></p>
+  </div>
+</section>
+
+<section id="voices-quotes">
+  <div class="wrap">
+    <div class="head"><p class="kicker">They saw it coming</p><h2 class="disp">Who is a city for?</h2></div>
+    <div class="grid">
+      <figure class="card" style="margin:0"><blockquote class="q">Cities have the capability of providing something for everybody, only because, and only when, they are created by everybody.</blockquote><cite><b>Jane Jacobs</b>The Death and Life of Great American Cities, 1961</cite></figure>
+      <figure class="card redc" style="margin:0"><blockquote class="q">The right to the city is far more than the individual liberty to access urban resources: it is a right to change ourselves by changing the city.</blockquote><cite><b>David Harvey</b>The Right to the City, 2008</cite></figure>
+      <figure class="card dark" style="margin:0"><blockquote class="q">Our criminal indifference to cities &hellip; allowed conditions to deteriorate to sub-human levels.</blockquote><cite><b>Charles Correa</b>Great City, Terrible Place</cite></figure>
+    </div>
+    <figure class="card dark" style="margin:16px 0 0;padding:clamp(22px,4vw,40px)">
+      <span class="tag">From the bench</span>
+      <blockquote class="q" style="font-size:clamp(1.4rem,3vw,2.2rem);text-transform:uppercase;line-height:1.1">It is the architecture of impatient social imperialism, the architecture of individualism, the architecture of exclusion.</blockquote>
+      <cite><b>Justice Gautam Patel</b>Bombay High Court, Safe Cities symposium, August 2013</cite>
+    </figure>
+  </div>
+</section>
+
+<section class="tight" id="questions">
+  <div class="wrap">
+    <div class="head"><p class="kicker">What the series asks</p><h2 class="disp">Questions no one answers</h2></div>
+    <div class="qs">
+      <div class="card"><span class="num">01</span><h3>Cities are made for people. But which people?</h3></div>
+      <div class="card"><span class="num">02</span><h3>When a mall replaces a playground, who loses?</h3></div>
+      <div class="card"><span class="num">03</span><h3>If cities are engines of growth, why is urban poverty growing?</h3></div>
+      <div class="card"><span class="num">04</span><h3>What does a child see from a slum window? And from a tower?</h3></div>
+      <div class="card"><span class="num">05</span><h3>Is public space a right, or whatever is left after building?</h3></div>
+      <div class="card"><span class="num">06</span><h3>Who decides where a road goes, and what it runs over?</h3></div>
+      <div class="card"><span class="num">07</span><h3>Can a city that buries its rivers and cuts its hills still breathe?</h3></div>
+      <div class="card"><span class="num">08</span><h3>The plan promised a playground. Where did it go?</h3></div>
+    </div>
+    <p class="small" style="margin-top:18px">Drawn from the series' own scripts, voice over drafts and interview questions, 2015 to 2025.</p>
+  </div>
+</section>
+
+<section class="night">
+  <div class="wrap split">
+    <figure class="bare" style="margin:0"><img src="img/aerial.webp" alt="Satellite view of dense urban sprawl in Pune cut by a highway" loading="lazy" width="1400" height="788"><p class="credit">Uncontrolled urbanisation · Imagery: Google Earth</p></figure>
+    <div>
+      <p class="kicker">From the first website</p>
+      <h2 class="disp">Uncontrolled urbanisation?</h2>
+      <p class="lede" style="margin-top:16px">In India, understanding the state of urban public spaces is more critical than ever. The quality of life in our cities depends, directly and indirectly, on the public spaces we live in.</p>
+      <a class="btn" href="state.html">Read the state of urban spaces</a>
+    </div>
+  </div>
+</section>
+
+<section id="series">
+  <div class="wrap">
+    <div class="head"><p class="kicker">The series</p><h2 class="disp">One question. As many cities as it takes.</h2></div>
+    <div class="grid format">
+      <div class="card dash"><span class="num">6 to 10</span><p>Episodes of 26 to 45 minutes. Count and length shaped with the producer and the platform.</p></div>
+      <div class="card dash"><span class="num">1 space</span><p>Per episode: a hill, a river, a street, a playground. Each one a live fight, each one linked to the next.</p></div>
+      <div class="card redc"><span class="num">Any city</span><p>Pune is filmed. The method travels to whichever cities the partner wants to reach.</p></div>
+    </div>
+    <p style="margin-top:30px"><span class="hl">A ten episode schematic is written. The cities are open.</span></p>
+  </div>
+</section>
+
+<section class="tight" id="stories">
+  <div class="wrap">
+    <div class="head"><p class="kicker">Possible stories</p><h2 class="disp">A menu, not a fixed list</h2></div>
+    <div class="grid stories">
+      <div class="card"><span class="tag">Pune · Filmed</span><h3>No Place to Play</h3><p>Playgrounds on paper, parking lots and towers in reality.</p></div>
+      <div class="card"><span class="tag">Pune · Filmed</span><h3>Roads Over Rivers and Hills</h3><p>A riverside road, the tekdis and who pays for speed.</p></div>
+      <div class="card"><span class="tag">Mumbai · Court files in hand</span><h3>A Forest in the City</h3><p>Aarey, the national park edge, and the coast.</p></div>
+      <div class="card"><span class="tag">Delhi NCR · Court files in hand</span><h3>The Last Hills</h3><p>The Aravallis, a hillock, and what the Supreme Court said.</p></div>
+      <div class="card"><span class="tag">Bengaluru · Researched</span><h3>Lakes and Flyovers</h3><p>A city of lakes, fighting the flyovers built beside them.</p></div>
+      <div class="card open"><span class="tag">Open · Your pick</span><h3>Your City Here</h3><p>Kolkata's wetlands, Goa's coast, Chennai's marshes, Hyderabad's lakes, hill towns.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="red pilot" id="pilot">
+  <div class="wrap split wide-left">
+    <div>
+      <p class="kicker">The pilot · 26 min</p>
+      <h2 class="disp">No place to play</h2>
+      <p class="lede" style="margin-top:20px">Pune's 1987 plan promised 174 playgrounds. By 2013, 9 existed. Children play in parking lots and on the street. We follow them, their parents and the paper trail of the land meant for them.</p>
+      <p style="margin-top:20px"><span class="hl big">Where did the reserved ground go, and who signed off?</span></p>
+    </div>
+    <div style="display:grid;gap:18px">
+      <figure class="print" style="--r:-2deg"><img src="img/pilot_road.webp" alt="A wide road cutting past open ground on the edge of Pune, with traffic and dumped rubble" loading="lazy" width="1060" height="1300"></figure>
+      <figure class="print" style="--r:1.5deg"><img src="img/playground_clip.webp" alt="Newspaper clipping: Only 9 playgrounds in Pune, where are the other 165, PMC?" loading="lazy" width="1320" height="660"></figure>
+    </div>
+  </div>
+</section>
+</main>
+<div class="pager"><div class="wrap"><span class="small" style="color:var(--night-muted)">The Space Within · A documentary series in production</span><a class="next" href="state.html"><span>Next · Page 02</span><b>State of Urban Spaces &rarr;</b></a></div></div><footer><div class="wrap"><span>The Space Within · A documentary series in production · Created by Amar Kulkarni</span><span>Satellite imagery: Google Earth, as credited · News links open the original reports</span></div></footer>
+<script>
+(function(){
+  var m=document.querySelector('.matrix');if(!m)return;
+  var P=JSON.parse(document.getElementById('pairs-data').textContent);
+  var L=JSON.parse(document.getElementById('layers-data').textContent);
+  var plates=m.querySelectorAll('.plate'),threads=m.querySelectorAll('.thread'),btns=m.querySelectorAll('.lay'),panels=m.querySelectorAll('.lpanel');
+  var mx=document.querySelector('.mx'),cells=mx.querySelectorAll('.mx-c'),labs=mx.querySelectorAll('.mx-lab[data-i]'),feet=mx.querySelectorAll('.mx-f');
+  var cap=document.querySelector('.mcap'),ck=document.getElementById('mcap-k'),ct=document.getElementById('mcap-t'),cx=document.getElementById('mcap-x');
+  var TN={p:'Pressure',s:'Sustains',h:'Hosts'};
+  function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+  // fill connection lists and legend dots
+  L.forEach(function(_,i){
+    var ul=m.querySelector('.conn[data-conn="'+i+'"]'),lc=m.querySelector('.lc[data-c="'+i+'"]'),h='',d='';
+    P.forEach(function(q){if(q[0]===i||q[1]===i){var o=q[0]===i?q[1]:q[0];h+='<li><i class="t-'+q[2]+'"></i>'+esc(L[o])+'</li>';if(q[3]===3)d+='<i class="t-'+q[2]+'"></i>'}});
+    ul.innerHTML=h;lc.innerHTML=d;
+  });
+  function caption(k){var q=P[k];cap.className='mcap t-'+q[2];ck.textContent=TN[q[2]]+' · '+L[q[0]]+' and '+L[q[1]];ct.textContent=q[4];cx.textContent=q[5];}
+  function clear(){
+    m.classList.remove('has-on');mx.classList.remove('dim');
+    plates.forEach(function(p){p.classList.remove('on','link')});threads.forEach(function(t){t.classList.remove('on')});
+    cells.forEach(function(c){c.classList.remove('on','rel')});labs.forEach(function(l){l.classList.remove('hi')});feet.forEach(function(f){f.classList.remove('hi')});
+  }
+  function layer(i){
+    clear();m.classList.add('has-on');mx.classList.add('dim');
+    plates[i].classList.add('on');
+    P.forEach(function(q,k){if(q[0]===i||q[1]===i){threads[k].classList.add('on');plates[q[0]===i?q[1]:q[0]].classList.add('link')}});
+    cells.forEach(function(c){if(+c.dataset.a===i||+c.dataset.b===i)c.classList.add('rel')});
+    labs.forEach(function(l){if(+l.dataset.i===i)l.classList.add('hi')});feet.forEach(function(f){if(+f.dataset.i===i)f.classList.add('hi')});
+    btns.forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.i===i?'true':'false')});
+    panels.forEach(function(p){p.hidden=+p.dataset.i!==i});
+  }
+  function pair(k){
+    var q=P[k];clear();m.classList.add('has-on');mx.classList.add('dim');
+    plates[q[0]].classList.add('on');plates[q[1]].classList.add('on');threads[k].classList.add('on');
+    cells[[].findIndex.call(cells,function(c){return +c.dataset.k===k})].classList.add('on','rel');
+    labs.forEach(function(l){if(+l.dataset.i===q[0]||+l.dataset.i===q[1])l.classList.add('hi')});
+    feet.forEach(function(f){if(+f.dataset.i===q[0]||+f.dataset.i===q[1])f.classList.add('hi')});
+    caption(k);
+  }
+  var pinL=null,pinP=null;
+  function rest(){if(pinP!==null)pair(pinP);else if(pinL!==null)layer(pinL);else clear();}
+  btns.forEach(function(b){var i=+b.dataset.i;
+    b.addEventListener('mouseenter',function(){layer(i)});b.addEventListener('focus',function(){layer(i)});
+    b.addEventListener('click',function(){pinP=null;pinL=(pinL===i?null:i);rest()});
+    b.addEventListener('mouseleave',rest);});
+  cells.forEach(function(c){var k=+c.dataset.k;
+    c.addEventListener('mouseenter',function(){pair(k)});c.addEventListener('focus',function(){pair(k)});
+    c.addEventListener('click',function(){pinL=null;pinP=(pinP===k?null:k);rest()});
+    c.addEventListener('mouseleave',rest);});
+  caption(P.findIndex(function(q){return q[0]===2&&q[1]===4}));
+  panels.forEach(function(p){p.hidden=+p.dataset.i!==0});
+})();
+</script>
+</body></html>
